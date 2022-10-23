@@ -1,6 +1,7 @@
 package com.application.LetsShare.config;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -14,6 +15,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class MyConfig extends WebSecurityConfigurerAdapter {
+
+
+    @Autowired
+    CustomLoginSuccessHandler successHandler;
 
     @Bean
     public UserDetailsService getUserDetailsService(){
@@ -48,9 +53,11 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http)throws Exception{
 
         http.authorizeHttpRequests().antMatchers("/registeredUser/**").hasRole("USER")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/allUsers/**").permitAll().and().formLogin()
+                .loginPage("/signin")
                 .loginProcessingUrl("/dologin")
-                .defaultSuccessUrl("/registeredUser/SoftwareExperiencePage")
+                .successHandler(successHandler)
                 .and().csrf().disable();
 
     }

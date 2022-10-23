@@ -53,6 +53,11 @@ body{
     background-color: #D1ABB6;
 }
 
+#logout{
+    top: 440px;
+    background-color: #e00d4d;
+}
+
 .my-card{
     background: #CAC2DD !important;
 }
