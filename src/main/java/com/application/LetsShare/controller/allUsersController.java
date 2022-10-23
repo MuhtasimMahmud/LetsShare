@@ -34,8 +34,6 @@ public class allUsersController {
     }
 
 
-
-
     @RequestMapping("MarketingExperiencePage")
     public String marketing(Model model){
 
