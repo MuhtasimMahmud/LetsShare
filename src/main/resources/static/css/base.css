@@ -1,0 +1,86 @@
+.experience-cards{
+    margin-top: 30px;
+}
+
+/* navbar */
+.nav{
+    /*margin-top: 5px;*/
+    margin-bottom: 20px;
+    background-color: #a6d3e7;
+}
+
+.nav-item a{
+    color: black;
+}
+
+/* buttons of cards */
+.btn{
+    margin-bottom: 5px;
+    width: 170px;
+}
+
+.msg{
+    background: #d8d8d8;
+}
+
+/* writing-icon */
+
+
+.write-icon{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.write-icon .container{
+    /*width: 10px;*/
+    text-align: center;
+}
+
+.write-icon img{
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /*position: absolute;*/
+    /*top: 50px;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*right: 200px;*/
+    /*bottom: 100px;*/
+}
+
+.write-icon img:hover{
+    width: 55px;
+    height: 55px;
+}
+
+.experience{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.experience-cards a{
+    text-decoration: none;
+    color: black;
+    margin-left: auto;
+}
+
+.experience-cards .experience .crd{
+    margin-top: 15px;
+    width: 780px;
+    text-decoration: none;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.experience-cards .experience .crd:hover{
+    transform: scale(1.1);
+    transition: 2s;
+}
+.card{
+    border-radius: 15px;
+}
+.card img{
+    height: 250px;
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="allUsers/base::layout(~{::section})">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <section>
+
+            <div class="container">
+
+                <h4> Showing <span th:text="${expCount}"></span> results</h4>
+
+                <div class="card-deck experience-cards" th:each="experience : ${experiences}">
+
+                    <div class="experience row">
+
+                        <div class="crd col-md-9">
+
+                            <a th:href="@{/allUsers/fullExperience/{id}(id = ${experience.id})}">
+                                <div class="card">
+                                    <img class="card-img-top" src="https://thumbs.dreamstime.com/b/mountain-view-usa-september-google-logo-googleplex-headquarters-main-office-google-logo-googleplex-headquarters-main-office-135700474.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">[[${experience.candidateNickname}]]'s interview experience in [[${experience.officeName}]] </h5>
+                                        <p class="card-text">[[${experience.experienceSummary}]].</p>
+                                    </div>
+
+                                    <div class="card-footer">
+                                        <!--                                       <small class="text-muted">Post ID: [[${experience.id}]] &nbsp; <span>   </span> </small>-->
+                                        <small class="text-muted">Posted on : [[${experience.postingDate}]]</small>
+                                        <!--                                       <small class="text-muted"> &nbsp; Posted by: [[${experience.postedBy}]]</small>-->
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="write-icon">
+                    <div class="container">
+                        <a th:href="@{/registeredUser/writeNewExperience}">
+                            <img src="/images/newPost.png" alt="">
+                        </a>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </section>
+
+    </body>
+
+</html>

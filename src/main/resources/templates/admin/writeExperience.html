@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+
+        <!-- External css -->
+        <link rel="stylesheet" th:href="@{/css/base.css}">
+        <link rel="stylesheet" th:href="@{/css/formDesign.css}">
+
+    </head>
+
+    <body>
+        <section>
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-8 offset-md-2" >
+
+                        <div class="my-card mt-5">
+
+                            <!-- Alert message-->
+
+                            <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+                                <p class="text-center" th:text="${session.message.content}"> </p>
+                                <th:block th:text="${#session.removeAttribute('message')}"> </th:block>
+                            </div>
+
+
+                            <h1 class="text-center heading"> Admin's Experience </h1>
+
+                            <form action="" th:action="@{/admin/postExperience}" method="post" th:object="${experienceObj}">
+
+
+                                <div class="form-row">
+                                    <!-- Candidate nickName field-->
+                                    <div class="form-group col-md-6">
+                                        <label for="name_field">Your Name</label>
+                                        <input name="candidateNickname" type="text" class="form-control" id="name_field" placeholder="Your nick name" th:value="${experienceObj.candidateNickname}">
+                                    </div>
+
+                                    <!-- OfficeName field-->
+                                    <div class="form-group col-md-6">
+                                        <label for="officeName_field">Office name</label>
+                                        <input name="officeName" type="text" class="form-control" id="officeName_field" placeholder="Office name" th:value="${experienceObj.officeName}">
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="form-row">
+                                    <!-- position field-->
+                                    <div class="form-group col-md-6">
+                                        <label for="position_field">Position</label>
+                                        <input name="position" type="text" class="form-control" id="position_field" placeholder="position you applied for" th:value="${experienceObj.position}">
+                                    </div>
+
+                                    <!-- jobType field-->
+                                    <div class="form-group col-md-6">
+                                        <label for="jobType_field">Job Type</label>
+                                        <input name="jobType" type="text" class="form-control" id="jobType_field" placeholder="Software/HR/Marketing" th:value="${experienceObj.jobType}">
+                                    </div>
+
+                                </div>
+
+
+
+                                <!--experience field-->
+                                <div class="form-group col-md-12">
+                                    <label for="experience_field">Experience</label>
+                                    <textarea name="experience" id="experience_field" placeholder="Write your experience." th:field="${experienceObj.experience}" rows="3" class="form-control"> </textarea>
+                                </div>
+
+                                <!--experienceSummary field-->
+                                <div class="form-group col-md-12">
+                                    <label for="experienceSummary_field">Experience Summary</label>
+                                    <textarea name="experienceSummary" id="experienceSummary_field" placeholder="Write a summary of your experience." th:field="${experienceObj.experienceSummary}" rows="3" class="form-control"> </textarea>
+                                </div>
+
+<!--                                &lt;!&ndash; image field &ndash;&gt;-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="image_field">Office's Photo </label>-->
+<!--                                    <input name="image" type="file" class="form-control" id="image_field" accept="image/png, image/jpeg" />-->
+<!--                                </div>-->
+
+
+
+                                <!--Submit and Reset field-->
+                                <div class="container text-center">
+                                    <button type="submit" class="btn btn-success mt-4">
+                                        Submit
+                                    </button>
+
+                                    <button type="reset" class="btn btn-warning mt-4">
+                                        Reset
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    </body>
+
+</html>

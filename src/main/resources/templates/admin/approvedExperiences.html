@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+    <section>
+        <div class="container mb-5">
+
+            <h3 class="text-center mt-5"> Approved Experiences</h3>
+
+            <div class="card-deck experience-cards" th:each="experience : ${experiences}">
+
+                <div class="experience row">
+
+
+                    <div class="crd col-md-7">
+                        <a th:href="@{/admin/fullExperience/{id}(id = ${experience.id})}">
+                            <div class="card">
+                                <img class="card-img-top" src="https://thumbs.dreamstime.com/b/mountain-view-usa-september-google-logo-googleplex-headquarters-main-office-google-logo-googleplex-headquarters-main-office-135700474.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">[[${experience.candidateNickname}]]'s interview experience in [[${experience.officeName}]] </h5>
+                                    <p class="card-text">[[${experience.experienceSummary}]].</p>
+                                </div>
+
+                                <div class="card-footer">
+                                    <small class="text-muted">Post ID: [[${experience.id}]] &nbsp; <span>   </span> </small>
+                                    <!--                                    <small class="text-muted">Posted on : [[${experience.postingDate}]]</small>-->
+                                    <small class="text-muted"> &nbsp; Posted by: [[${experience.postedBy}]]</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div style="margin-top: auto; margin-bottom: auto;" class="options col-md-1">
+                        <a th:href="@{/admin/rejectPostFromApprovedList/{id}(id = ${experience.id})}">
+                            <img style="height: 30px; width: 30px;" src="/images/not_approve.png" alt="">
+                        </a>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    </body>
+
+</html>

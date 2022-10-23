@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+    <section>
+        <div class="container">
+
+            <h3 class="text-center mt-5 mb-5"> Admin Dashboard </h3>
+
+            <div style="position: absolute; top: 30%; left: 40%">
+                <h5> Total Approved experience  &nbsp;&nbsp; : &nbsp;<span th:text="${approveCount}"> </span> </h5>
+                <h5> Total Rejected experience &nbsp;&nbsp;&nbsp;&nbsp;  : &nbsp;<span th:text="${rejectCount}"> </span> </h5>
+                <h5> Total Requested experience &nbsp; : &nbsp;<span th:text="${requestCount}"> </span> </h5>
+            </div>
+
+        </div>
+    </section>
+
+
+    </body>
+
+</html>

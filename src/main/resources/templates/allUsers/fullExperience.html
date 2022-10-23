@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="allUsers/base::layout(~{::section})">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title>Document</title>
+
+    </head>
+    <body>
+
+        <section>
+
+            <div class="fullExp">
+                <div class="container">
+
+                    <img src="https://thumbs.dreamstime.com/b/mountain-view-usa-september-google-logo-googleplex-headquarters-main-office-google-logo-googleplex-headquarters-main-office-135700474.jpg" alt="">
+
+                    <div class="title mb-4">
+                        <h3> <span th:text="${experience.candidateNickname}"> </span>'s interview experience at <span th:text="${experience.officeName}"></span> </h3>
+                        <h6> Posted on : <span th:text="${experience.postingDate}"></span> </h6>
+                    </div>
+
+                    <p> <span th:text="${experience.experience}"> </span> </p>
+
+
+                    <div class="postedBy mt-5">
+                        <h6> Posted By :  </h6>
+                        <h6> <span th:text="${postingPerson.name}"> </span> </h6>
+                        <h6> <span th:text="${postingPerson.position}"> </span> </h6>
+                        <h6> <span th:text="${postingPerson.officeName}"> </span> (Currently working here) </h6>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+    </body>
+</html>

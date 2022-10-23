@@ -1,0 +1,43 @@
+img of fullExperience page :
+
+                templates/admin/fullExperience.html
+                templates/allUsers/fullExperience.html
+                templates/RegisteredUsers/fullExperience.html
+
+                ei 3 ta page er img tag e src deya google office er. so, full experience e oi image ta dynamic korte hobe, prottek id theke dhore img nite hobe.
+
+
+
+
+img of each experience card :
+
+
+                template/admin/
+                              -> approveExperience.html
+                              -> rejectedExperience.html
+                              -> requestedExperience.html
+                              -> myProfile.html
+
+                              ei 4 ta page er card gulate img src e google er office er img deya ase. eikhaneu dynamic bananor jonno ei jayga gulate change korte hobe.
+
+
+
+                template/allUsers/
+                              -> SoftwareExperiencePage.html
+                              -> MarketingExperiencePage.html
+                              -> HR_ExperiencePage.html
+
+                              ei 3 ta page er card gulate img src e google er office er img deya ase. eikhaneu dynamic bananor jonno ei jayga gulate change korte hobe.
+
+
+
+                template/RegisteredUsers/
+                              -> SoftwareExperiencePage.html
+                              -> MarketingExperiencePage.html
+                              -> HR_ExperiencePage.html
+
+                             ei 3 ta page er card gulate img src e google er office er img deya ase. eikhaneu dynamic bananor jonno ei jayga gulate change korte hobe.
+
+
+
+** admin controller er postExperience method er vhitore porte hobe. oita static mail likhe dile hobena. oita thik korte hobe. likha ase oikhane.
