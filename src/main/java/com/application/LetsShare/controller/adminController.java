@@ -275,5 +275,31 @@ public class adminController {
         return "admin/fullExperience";
     }
 
+    @RequestMapping("/fullExperienceRequestedExp/{id}")
+    public String fullViewFromRequestedExp(@PathVariable("id") int id, Model model){
+
+        RequestedExperiences experience = requestedExpRepository.findById(id);
+        User user = userRepository.findByEmail(experience.getPostedBy());
+
+        model.addAttribute("experience", experience);
+        model.addAttribute("postingPerson", user);
+
+        return "admin/fullExperience";
+    }
+
+    @RequestMapping("/fullExperienceRejectedExp/{id}")
+    public String fullViewFromRejectedExp(@PathVariable("id") int id, Model model){
+
+        RejectedExperiences experience = rejectedRepository.findById(id);
+        User user = userRepository.findByEmail(experience.getPostedBy());
+
+        model.addAttribute("experience", experience);
+        model.addAttribute("postingPerson", user);
+
+        return "admin/fullExperience";
+    }
+
+
+
 
 }
