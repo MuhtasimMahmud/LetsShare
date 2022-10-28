@@ -16,7 +16,7 @@
 
            <div class="container">
 
-               <h4> Showing <span th:text="${expCount}"></span> results</h4>
+               <h4> Showing <span th:text="${expCount}"></span> results for software</h4>
 
                <div class="card-deck experience-cards" th:each="experience : ${experiences}">
 
@@ -26,7 +26,7 @@
                        <div class="crd col-md-9">
                            <a th:href="@{/registeredUser/fullExperience/{id}(id = ${experience.id})}">
                                <div class="card">
-                                   <img class="card-img-top" src="https://media.istockphoto.com/photos/microsoft-sign-at-the-entrance-of-their-silicon-valley-campus-picture-id471179856?k=20&m=471179856&s=612x612&w=0&h=Fb2hjB4PL8pJ3CJ9L_puOgexxhU5yl7D_BytMC_pnAE=" alt="Card image cap">
+                                   <img class="card-img-top" src="https://thumbs.dreamstime.com/b/mountain-view-usa-september-google-logo-googleplex-headquarters-main-office-google-logo-googleplex-headquarters-main-office-135700474.jpg" alt="Card image cap">
                                    <div class="card-body">
                                        <h5 class="card-title">[[${experience.candidateNickname}]]'s interview experience in [[${experience.officeName}]] </h5>
                                        <p class="card-text">[[${experience.experienceSummary}]].</p>

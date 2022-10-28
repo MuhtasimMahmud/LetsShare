@@ -38,22 +38,6 @@
 
                             <form action="" th:action="@{/registeredUser/postExperience}" method="post" th:object="${experienceObj}">
 
-
-<!--                                -->
-
-<!--                                id-->
-<!--                                candidateNickname-->
-<!--                                position-->
-<!--                                officeName-->
-<!--                                experienceObj-->
-<!--                                postingDate //eta controller theke ajker date diye dibo. eikhane kisu korte hobena. -->
-<!--                                jobType // software/HR/Marketing-->
-<!--                                experienceSummary-->
-<!--                                -->
-<!--                                -->
-
-
-
                                 <div class="form-row">
                                     <!-- Candidate nickName field-->
                                     <div class="form-group col-md-6">
@@ -68,7 +52,6 @@
                                     </div>
 
                                 </div>
-
 
 
                                 <div class="form-row">
@@ -100,6 +83,12 @@
                                     <textarea name="experienceSummary" id="experienceSummary_field" placeholder="Write a summary of your experience." th:field="${experienceObj.experienceSummary}" rows="3" class="form-control"> </textarea>
                                 </div>
 
+
+                                <!-- image field -->
+                                <div class="form-group">
+                                    <label for="image_field">Office's Photo </label>
+                                    <input name="image" type="file" class="form-control" id="image_field" accept="image/png, image/jpeg" />
+                                </div>
 
 
                                 <!--Submit and Reset field-->
