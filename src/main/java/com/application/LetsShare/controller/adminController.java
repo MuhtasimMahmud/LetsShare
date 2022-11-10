@@ -142,7 +142,7 @@ public class adminController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return "admin/myProfile";
+        return "redirect:/admin/myProfile";
     }
 
 
@@ -172,7 +172,7 @@ public class adminController {
         }catch(Exception e){
             e.printStackTrace();
         }
-        return "admin/requestedExperiences";
+        return "redirect:/admin/requestedExperiences";
     }
 
 
@@ -200,7 +200,7 @@ public class adminController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return "admin/requestedExperiences";
+        return "redirect:/admin/requestedExperiences";
     }
 
 
@@ -230,7 +230,7 @@ public class adminController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return "admin/approvedExperiences";
+        return "redirect:/admin/approvedExperiences";
     }
 
 
@@ -259,7 +259,7 @@ public class adminController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return "admin/rejectedExperiences";
+        return "redirect:/admin/rejectedExperiences";
     }
 
 
@@ -298,8 +298,5 @@ public class adminController {
 
         return "admin/fullExperience";
     }
-
-
-
 
 }
