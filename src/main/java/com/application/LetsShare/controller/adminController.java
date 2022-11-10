@@ -200,7 +200,7 @@ public class adminController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return "admin/requestedExperiences";
+        return "redirect:/admin/requestedExperiences";
     }
 
 
