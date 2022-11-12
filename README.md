@@ -1,5 +1,64 @@
 # LetsShare
 
+Project summary : 
+
+This is a platform (web application) in which people can share specific software, HR and marketing jobs interview experience. All user can read the shared experiences without registering an account but if he/she wants to share own experience, then he/she has te register their account. Then they can write their own experience and request to post it. Only approved experienced will be shown to the users. There is an admin who will take care of this requests and others. 
+
+
+Features : 
+
+1. Users management :
+
+     - Unregistered user (read only)
+     - Registered user (read + share)
+     - Admin
+
+
+2. Job category :
+
+      - Software
+      - HR
+      - Marketing
+
+
+3. Read Experiences : 
+
+      - All users (registered + unregistered) can view the shared experiences.
+ 
+
+4. Share experiences : 
+
+      - Only registered users can post an experience and request to post it.
+
+
+5. User Feedback : 
+
+     - like and dislike button in each experiences
+     - only registered user can give feedback through the like and dislike button.
+
+
+6. Registered user profile :
+
+     - can update own information in the profile.
+     - can view own shared experiences from own profile.
+     - can edit own experiences.
+
+
+7. Admin panel :
+
+      - Admin can view all the requested experiences.
+      - can reject or approve experiences from requested list.
+      - can differently view the rejected and approved list.
+      - can approve again from rejected list.
+      - can reject again from approved list.
+      - can share experiences.
+      - can view own experiences and edit own info from own profile.
+      
+     
+
+Screenshots :
+
+
 ![1](https://user-images.githubusercontent.com/58343930/198553028-0d7e63b4-7c6b-444a-ac0a-a96d0fbc6d9c.png)
 
 ![2](https://user-images.githubusercontent.com/58343930/198553059-282e9ed5-8c19-4f89-a7ce-a5254e11af53.png)
