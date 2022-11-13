@@ -9,6 +9,8 @@
         <!-- External css -->
         <link rel="stylesheet" href="/css/base.css">
 
+
+
     </head>
     <body>
 
@@ -21,7 +23,6 @@
                <div class="card-deck experience-cards" th:each="experience : ${experiences}">
 
                    <div class="experience row">
-
 
                        <div class="crd col-md-9">
                            <a th:href="@{/registeredUser/fullExperience/{id}(id = ${experience.id})}">
@@ -36,11 +37,16 @@
 <!--                                       <small class="text-muted">Post ID: [[${experience.id}]] &nbsp; <span>   </span> </small>-->
                                        <small class="text-muted">Posted on : [[${experience.postingDate}]]</small>
 <!--                                       <small class="text-muted"> &nbsp; Posted by: [[${experience.postedBy}]]</small>-->
+
+                                       <div class="likeDiv">
+                                           <a onclick="work(this[experience].id)" href=""> <img id="likebtn" src="/images/like.png" alt=""> </a>
+                                           <p id="count"> 0 </p>
+                                       </div>
+
                                    </div>
                                </div>
                            </a>
                        </div>
-
 
                    </div>
 
@@ -54,8 +60,6 @@
                        </a>
                    </div>
                </div>
-
-
 
            </div>
 
