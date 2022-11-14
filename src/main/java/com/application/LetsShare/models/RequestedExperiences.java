@@ -18,13 +18,13 @@ public class RequestedExperiences{
     private String experienceSummary = "";
     private String postedBy;
 
-    private String photo;
+    private String image;
 
     public RequestedExperiences(){
 
     }
 
-    public RequestedExperiences(int id, String candidateNickname, String position, String officeName, String experience, LocalDate postingDate, String jobType, String experienceSummary, String postedBy, String photo) {
+    public RequestedExperiences(int id, String candidateNickname, String position, String officeName, String experience, LocalDate postingDate, String jobType, String experienceSummary, String postedBy, String image) {
         this.id = id;
         this.candidateNickname = candidateNickname;
         this.position = position;
@@ -34,7 +34,7 @@ public class RequestedExperiences{
         this.jobType = jobType;
         this.experienceSummary = experienceSummary;
         this.postedBy = postedBy;
-        this.photo = photo;
+        this.image = image;
     }
 
     public int getId() {
@@ -109,12 +109,12 @@ public class RequestedExperiences{
         this.postedBy = postedBy;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getImage() {
+        return image;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setImage(String image) {
+        this.image = image;
     }
 
 }

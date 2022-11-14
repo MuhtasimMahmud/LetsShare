@@ -35,15 +35,17 @@
 
                                    <div class="card-footer">
 <!--                                       <small class="text-muted">Post ID: [[${experience.id}]] &nbsp; <span>   </span> </small>-->
-                                       <small class="text-muted">Posted on : [[${experience.postingDate}]]</small>
+                                       <small class="text-muted">Posted on : [[${experience.postingDate}]] </small>
 <!--                                       <small class="text-muted"> &nbsp; Posted by: [[${experience.postedBy}]]</small>-->
 
                                        <div class="likeDiv">
-                                           <a onclick="work(this[experience].id)" href=""> <img id="likebtn" src="/images/like.png" alt=""> </a>
+
+                                           <a th:onclick= "'work(\''  + ${experience.id} +  '\');'"> <img id="likebtn" src="/images/like.png" alt=""> </a>
                                            <p id="count"> 0 </p>
                                        </div>
 
                                    </div>
+
                                </div>
                            </a>
                        </div>

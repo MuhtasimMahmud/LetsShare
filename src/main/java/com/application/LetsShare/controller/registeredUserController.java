@@ -9,13 +9,19 @@ import com.application.LetsShare.repositories.ApprovedExpRepository;
 import com.application.LetsShare.repositories.RequestedExpRepository;
 import com.application.LetsShare.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
@@ -109,14 +115,27 @@ public class registeredUserController {
     }
 
 
-    @RequestMapping("postExperience")
-    public String postExperience(@ModelAttribute("experienceObj") RequestedExperiences requestedExperiences, Model model, HttpSession session, Principal principal){
+    @PostMapping("postExperience")
+    public String postExperience(
+            @ModelAttribute("experienceObj") RequestedExperiences requestedExperiences, Model model,
+            HttpSession session, @RequestParam("image") MultipartFile file, Principal principal) throws IOException {
 
         try{
 
             requestedExperiences.setPostingDate(LocalDate.now());
             requestedExperiences.setPostedBy(principal.getName());
             RequestedExperiences result = requestedExpRepository.save(requestedExperiences);
+
+
+            if(!file.isEmpty()){
+                StringBuilder fileNames = new StringBuilder();
+                Path fileNameAndPath = Paths.get("static/experienceImages", file.getOriginalFilename());
+                fileNames.append(file.getOriginalFilename());
+                Files.write(fileNameAndPath, file.getBytes());
+                model.addAttribute("msg", "Uploaded images: " + fileNames.toString());
+            }
+
+
 
             model.addAttribute("experienceObj", new RequestedExperiences());
             session.setAttribute("message", new Message("Your experience is submitted. Wait for the approval.", "alert-success"));
