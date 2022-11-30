@@ -40,13 +40,13 @@
                                     <!-- Candidate nickName field-->
                                     <div class="form-group col-md-6">
                                         <label for="name_field">Your Name</label>
-                                        <input name="candidateNickname" type="text" class="form-control" id="name_field" placeholder="Your nick name" th:value="${experienceObj.candidateNickname}">
+                                        <input name="candidateNickname" type="text" class="form-control" id="name_field" placeholder="Your nick name">
                                     </div>
 
                                     <!-- OfficeName field-->
                                     <div class="form-group col-md-6">
                                         <label for="officeName_field">Office name</label>
-                                        <input name="officeName" type="text" class="form-control" id="officeName_field" placeholder="Office name" th:value="${experienceObj.officeName}">
+                                        <input name="officeName" type="text" class="form-control" id="officeName_field" placeholder="Office name">
                                     </div>
 
                                 </div>
@@ -57,35 +57,34 @@
                                     <!-- position field-->
                                     <div class="form-group col-md-6">
                                         <label for="position_field">Position</label>
-                                        <input name="position" type="text" class="form-control" id="position_field" placeholder="position you applied for" th:value="${experienceObj.position}">
+                                        <input name="position" type="text" class="form-control" id="position_field" placeholder="position you applied for">
                                     </div>
 
                                     <!-- jobType field-->
                                     <div class="form-group col-md-6">
                                         <label for="jobType_field">Job Type</label>
-                                        <input name="jobType" type="text" class="form-control" id="jobType_field" placeholder="Software/HR/Marketing" th:value="${experienceObj.jobType}">
+                                        <input name="jobType" type="text" class="form-control" id="jobType_field" placeholder="Software/HR/Marketing">
                                     </div>
 
                                 </div>
 
 
-
                                 <!--experience field-->
                                 <div class="form-group col-md-12">
                                     <label for="experience_field">Experience</label>
-                                    <textarea name="experience" id="experience_field" placeholder="Write your experience." th:field="${experienceObj.experience}" rows="3" class="form-control"> </textarea>
+                                    <textarea name="experience" id="experience_field" placeholder="Write your experience." rows="3" class="form-control"> </textarea>
                                 </div>
 
                                 <!--experienceSummary field-->
                                 <div class="form-group col-md-12">
                                     <label for="experienceSummary_field">Experience Summary</label>
-                                    <textarea name="experienceSummary" id="experienceSummary_field" placeholder="Write a summary of your experience." th:field="${experienceObj.experienceSummary}" rows="3" class="form-control"> </textarea>
+                                    <textarea name="experienceSummary" id="experienceSummary_field" placeholder="Write a summary of your experience." rows="3" class="form-control"> </textarea>
                                 </div>
 
                                 <!-- image field -->
                                 <div class="form-group">
-                                    <label for="image_field">Office's Photo </label>
-                                    <input name="image" type="file" class="form-control" id="image_field" accept="image/png, image/jpeg" />
+                                    <label for="image_field">Office's photo link </label>
+                                    <input name="image" type="text" class="form-control" id="image_field"/>
                                 </div>
 
 
