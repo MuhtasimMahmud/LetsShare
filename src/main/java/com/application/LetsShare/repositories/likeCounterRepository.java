@@ -9,7 +9,7 @@ import java.util.List;
 public interface likeCounterRepository extends JpaRepository<likeCounter, Integer> {
 
 
-    List<likeCounter> findAllById(int id);
+    List<likeCounter> findAllByLikedBy(String email);
 
     @Query("select l from likeCounter l where l.experienceId = :id AND l.likedBy = :likedPersonEmail")
     public likeCounter findByExperienceId(int id, String likedPersonEmail);

@@ -5,9 +5,11 @@ import com.application.LetsShare.helper.Message;
 import com.application.LetsShare.models.ApprovedExperiences;
 import com.application.LetsShare.models.RequestedExperiences;
 import com.application.LetsShare.models.User;
+import com.application.LetsShare.models.likeCounter;
 import com.application.LetsShare.repositories.ApprovedExpRepository;
 import com.application.LetsShare.repositories.RequestedExpRepository;
 import com.application.LetsShare.repositories.UserRepository;
+import com.application.LetsShare.repositories.likeCounterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.security.Principal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -39,6 +42,9 @@ public class registeredUserController {
 
     @Autowired
     private ApprovedExpRepository approvedExpRepository;
+
+    @Autowired
+    likeCounterRepository likeCounterRepository;
 
 
 
@@ -156,6 +162,26 @@ public class registeredUserController {
         model.addAttribute("postingPerson", user);
 
         return "RegisteredUsers/fullExperience";
+    }
+
+
+    @RequestMapping("myLikedExperiences")
+    public String myLikedExperiences(Model model, Principal principal){
+
+        List<likeCounter> likedExperiencesId = likeCounterRepository.findAllByLikedBy(principal.getName());
+        List<ApprovedExperiences> LikedExperiencesList = new ArrayList<>();
+
+
+        for(int i=0; i<likedExperiencesId.size(); i++){
+
+            ApprovedExperiences exp = approvedExpRepository.findById(likedExperiencesId.get(i).getExperienceId());
+            LikedExperiencesList.add(exp);
+
+        }
+
+        model.addAttribute("experiences", LikedExperiencesList);
+
+        return "RegisteredUsers/myLikedExperiences";
     }
 
 

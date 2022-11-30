@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="RegisteredUsers/base::layout(~{::section})">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+
+        <!-- External css -->
+        <link rel="stylesheet" href="/css/base.css">
+
+    </head>
+    <body>
+
+        <section>
+
+            <div class="container">
+
+                <h4 class="text-center"> Experiences you have liked </h4>
+
+                <div class="card-deck experience-cards" th:each="experience : ${experiences}">
+
+                    <div class="experience row">
+
+                        <div class="crd col-md-9">
+                            <a th:href="@{/registeredUser/fullExperience/{id}(id = ${experience.id})}">
+                                <div class="card">
+                                    <img class="card-img-top" th:src="${experience.image}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">[[${experience.candidateNickname}]]'s interview experience in [[${experience.officeName}]] </h5>
+                                        <p class="card-text">[[${experience.experienceSummary}]].</p>
+                                    </div>
+
+                                    <div class="card-footer">
+                                        <!--                                       <small class="text-muted">Post ID: [[${experience.id}]] &nbsp; <span>   </span> </small>-->
+                                        <small class="text-muted">Posted on : [[${experience.postingDate}]] </small>
+                                        <!--                                       <small class="text-muted"> &nbsp; Posted by: [[${experience.postedBy}]]</small>-->
+
+
+                                        <div class="likeDiv">
+
+                                            <a class="sideBysideItem" th:onclick= "'work(\''  + ${experience.id} +  '\');'"> <img id="likebtn" src="/images/like.png" alt=""> </a>
+                                            <p class="sideBysideItem count" id="likeCount"> [[${experience.totalLike}]] </p>
+
+                                            <a class="sideBysideItem" th:onclick= "'work(\''  + ${experience.id} +  '\');'"> <img id="dislikebtn" src="/images/dislike.png" alt=""> </a>
+                                            <p class="sideBysideItem count" id="dislikeCount"> [[${experience.totalDislike}]] </p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </body>
+</html>
