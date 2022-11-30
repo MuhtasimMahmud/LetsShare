@@ -28,16 +28,10 @@ public class like_dislikeController {
     @Autowired
     dislikeCounterRepository dislikeCounterRepository;
 
-    // jokhon dislike dibe tokhon like_counter thekeu dlt korte hobe
-    // ar jokhon like dibe tokhon dislike counter thekeu dlt korte hobe
-
-
-
-
 
     // RegisteredUser : like software experiences
 
-    @RequestMapping("/registeredUser/softwareExp/likePost/{id}")
+    @RequestMapping("/registeredUser/likePost/{id}")
     public String likeSoftwareExperience(@PathVariable("id") int id, Model model, Principal principal){
 
 
@@ -45,8 +39,11 @@ public class like_dislikeController {
 
         likeCounter likedPosts = likeCounterRepository.findByExperienceId(id, principal.getName());
 
+        ApprovedExperiences approvedExperience = approvedExpRepository.findById(id);
+        String jobType = approvedExperience.getJobType();
+
+
         if(likedPosts == null){
-            ApprovedExperiences approvedExperience = approvedExpRepository.findById(id);
             approvedExperience.setTotalLike(approvedExperience.getTotalLike()+1);
 
             approvedExpRepository.save(approvedExperience);
@@ -67,33 +64,48 @@ public class like_dislikeController {
                 approvedExperience.setTotalDislike(approvedExperience.getTotalDislike() - 1);
                 approvedExpRepository.save(approvedExperience);
 
-//                dislikeCounter dislikePost = new dislikeCounter();
-//                dislikePost.setDislikedBy(principal.getName());
-//                dislikePost.setExperienceId(id);
-
                 dislikeCounterRepository.delete(dislikedPosts);
             }
 
         }else{
-            return "redirect:/registeredUser/SoftwareExperiencePage";
+
+            switch (jobType) {
+                case "Software":
+                    return "redirect:/registeredUser/SoftwareExperiencePage";
+                case "HR":
+                    return "redirect:/registeredUser/HR_ExperiencePage";
+                case "Marketing":
+                    return "redirect:/registeredUser/MarketingExperiencePage";
+            }
+
         }
 
-        return "redirect:/registeredUser/SoftwareExperiencePage";
+        return switch (jobType) {
+            case "Software" -> "redirect:/registeredUser/SoftwareExperiencePage";
+            case "HR" -> "redirect:/registeredUser/HR_ExperiencePage";
+            case "Marketing" -> "redirect:/registeredUser/MarketingExperiencePage";
+            default -> "";
+        };
+
+        // eta kokhonoi run hobena ar ki cz uporei return chole jabe
     }
+
 
 
     // RegisterUser : dislike software experience
 
-    @RequestMapping("/registeredUser/softwareExp/dislikePost/{id}")
+    @RequestMapping("/registeredUser/dislikePost/{id}")
     public String dislikeSoftwareExperience(@PathVariable("id") int id, Model model, Principal principal){
 
         // if the current user not disliked this post previously, only then we are giving access to dislike this post.
 
         dislikeCounter dislikedPosts = dislikeCounterRepository.findByExperienceId(id, principal.getName());
 
+        ApprovedExperiences approvedExperience = approvedExpRepository.findById(id);
+        String jobType = approvedExperience.getJobType();
+
         if(dislikedPosts == null){
 
-            ApprovedExperiences approvedExperience = approvedExpRepository.findById(id);
             approvedExperience.setTotalDislike(approvedExperience.getTotalDislike()+1);
 
             approvedExpRepository.save(approvedExperience);
@@ -114,19 +126,34 @@ public class like_dislikeController {
 
                 approvedExpRepository.save(approvedExperience);
 
-//                likeCounter likePost = new likeCounter();
-//                likePost.setLikedBy(principal.getName());
-//                likePost.setExperienceId(id);
-
                 likeCounterRepository.delete(likedPosts);
             }
 
         }else{
-            return "redirect:/registeredUser/SoftwareExperiencePage";
+
+            switch (jobType) {
+                case "Software":
+                    return "redirect:/registeredUser/SoftwareExperiencePage";
+                case "HR":
+                    return "redirect:/registeredUser/HR_ExperiencePage";
+                case "Marketing":
+                    return "redirect:/registeredUser/MarketingExperiencePage";
+            }
+
         }
 
-        return "redirect:/registeredUser/SoftwareExperiencePage";
+        return switch (jobType) {
+            case "Software" -> "redirect:/registeredUser/SoftwareExperiencePage";
+            case "HR" -> "redirect:/registeredUser/HR_ExperiencePage";
+            case "Marketing" -> "redirect:/registeredUser/MarketingExperiencePage";
+            default -> "";
+        };
+
     }
+
+
+
+
 
 
 }
