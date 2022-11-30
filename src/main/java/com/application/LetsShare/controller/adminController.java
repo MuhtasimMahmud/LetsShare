@@ -162,6 +162,7 @@ public class adminController {
         approvedExperience.setJobType(requestedExperience.getJobType());
         approvedExperience.setExperienceSummary(requestedExperience.getExperienceSummary());
         approvedExperience.setPostedBy(requestedExperience.getPostedBy());
+        approvedExperience.setImage(requestedExperience.getImage());
 
 
         try{
@@ -191,6 +192,7 @@ public class adminController {
         rejectedExperiences.setJobType(requestedExperience.getJobType());
         rejectedExperiences.setExperienceSummary(requestedExperience.getExperienceSummary());
         rejectedExperiences.setPostedBy(requestedExperience.getPostedBy());
+        rejectedExperiences.setImage(rejectedExperiences.getImage());
 
         try{
             if(requestedExperience != null){
@@ -220,6 +222,7 @@ public class adminController {
         rejectedExperience.setJobType(approvedExperience.getJobType());
         rejectedExperience.setExperienceSummary(approvedExperience.getExperienceSummary());
         rejectedExperience.setPostedBy(approvedExperience.getPostedBy());
+        rejectedExperience.setImage(approvedExperience.getImage());
 
         try{
             if(approvedExperience != null){
@@ -250,6 +253,7 @@ public class adminController {
         approvedExperience.setJobType(rejectedExperience.getJobType());
         approvedExperience.setExperienceSummary(rejectedExperience.getExperienceSummary());
         approvedExperience.setPostedBy(rejectedExperience.getPostedBy());
+        approvedExperience.setImage(rejectedExperience.getImage());
 
         try{
             if(approvedExperience != null){
