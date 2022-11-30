@@ -2,6 +2,10 @@ body{
     background-color: #e7e7ee !important;
 }
 
+.sidenav{
+    position: sticky;
+    top: 0;
+}
 
 /* Style the links inside the sidenav */
 #mySidenav a {
