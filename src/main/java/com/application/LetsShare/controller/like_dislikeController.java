@@ -29,10 +29,10 @@ public class like_dislikeController {
     dislikeCounterRepository dislikeCounterRepository;
 
 
-    // RegisteredUser : like software experiences
+    // RegisteredUser : like experiences
 
     @RequestMapping("/registeredUser/likePost/{id}")
-    public String likeSoftwareExperience(@PathVariable("id") int id, Model model, Principal principal){
+    public String likeExperience(@PathVariable("id") int id, Model model, Principal principal){
 
 
         // if the current user not liked this post previously, only then we are giving access to like the post.
@@ -87,15 +87,14 @@ public class like_dislikeController {
             default -> "";
         };
 
-        // eta kokhonoi run hobena ar ki cz uporei return chole jabe
     }
 
 
 
-    // RegisterUser : dislike software experience
+    // RegisterUser : dislike experience
 
     @RequestMapping("/registeredUser/dislikePost/{id}")
-    public String dislikeSoftwareExperience(@PathVariable("id") int id, Model model, Principal principal){
+    public String dislikeExperience(@PathVariable("id") int id, Model model, Principal principal){
 
         // if the current user not disliked this post previously, only then we are giving access to dislike this post.
 
@@ -153,7 +152,97 @@ public class like_dislikeController {
 
 
 
+    // Admin : like experiences
 
+    @RequestMapping("/admin/likePost/{id}")
+    public String adminlikeExperience(@PathVariable("id") int id, Model model, Principal principal){
+
+
+        // if the current user not liked this post previously, only then we are giving access to like the post.
+
+        likeCounter likedPosts = likeCounterRepository.findByExperienceId(id, principal.getName());
+
+        ApprovedExperiences approvedExperience = approvedExpRepository.findById(id);
+        String jobType = approvedExperience.getJobType();
+
+
+        if(likedPosts == null){
+            approvedExperience.setTotalLike(approvedExperience.getTotalLike()+1);
+
+            approvedExpRepository.save(approvedExperience);
+
+            likeCounter likePost = new likeCounter();
+            likePost.setLikedBy(principal.getName());
+            likePost.setExperienceId(id);
+
+            likeCounterRepository.save(likePost);
+
+
+            // if this used already disliked this post previously, then here removing the dislike as this user is giving like now.
+
+            dislikeCounter dislikedPosts = dislikeCounterRepository.findByExperienceId(id, principal.getName());
+
+            if(dislikedPosts != null){
+
+                approvedExperience.setTotalDislike(approvedExperience.getTotalDislike() - 1);
+                approvedExpRepository.save(approvedExperience);
+
+                dislikeCounterRepository.delete(dislikedPosts);
+            }
+
+        }else{
+
+            return "redirect:/admin/approvedExperiences";
+        }
+
+        return "redirect:/admin/approvedExperiences";
+    }
+
+
+    // Admin : dislike experience
+
+    @RequestMapping("/admin/dislikePost/{id}")
+    public String adminDislikeExperience(@PathVariable("id") int id, Model model, Principal principal){
+
+        // if the current user not disliked this post previously, only then we are giving access to dislike this post.
+
+        dislikeCounter dislikedPosts = dislikeCounterRepository.findByExperienceId(id, principal.getName());
+
+        ApprovedExperiences approvedExperience = approvedExpRepository.findById(id);
+        String jobType = approvedExperience.getJobType();
+
+        if(dislikedPosts == null){
+
+            approvedExperience.setTotalDislike(approvedExperience.getTotalDislike()+1);
+
+            approvedExpRepository.save(approvedExperience);
+
+            dislikeCounter dislikePost = new dislikeCounter();
+            dislikePost.setDislikedBy(principal.getName());
+            dislikePost.setExperienceId(id);
+
+            dislikeCounterRepository.save(dislikePost);
+
+
+            // if this current user already liked this post previously, then here we are removing that like as now the user is giving dislike.
+
+            likeCounter likedPosts = likeCounterRepository.findByExperienceId(id, principal.getName());
+
+            if(likedPosts != null) {
+                approvedExperience.setTotalLike(approvedExperience.getTotalLike() - 1);
+
+                approvedExpRepository.save(approvedExperience);
+
+                likeCounterRepository.delete(likedPosts);
+            }
+
+        }else{
+
+            return "redirect:/admin/approvedExperiences";
+        }
+
+        return "redirect:/admin/approvedExperiences";
+    }
 
 
 }

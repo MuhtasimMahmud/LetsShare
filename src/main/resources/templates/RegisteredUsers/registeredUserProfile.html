@@ -109,6 +109,17 @@
 <!--                                    <small class="text-muted">Post ID: [[${experience.id}]] &nbsp; <span>   </span> </small>-->
                                     <small class="text-muted">Posted on : [[${experience.postingDate}]]</small>
 <!--                                    <small class="text-muted"> &nbsp; Posted by: [[${experience.postedBy}]]</small>-->
+
+                                    <div class="likeDiv">
+
+                                        <a class="sideBysideItem" th:onclick= "'work(\''  + ${experience.id} +  '\');'"> <img id="likebtn" src="/images/like.png" alt=""> </a>
+                                        <p class="sideBysideItem count" id="likeCount"> [[${experience.totalLike}]] </p>
+
+                                        <a class="sideBysideItem" th:onclick= "'work(\''  + ${experience.id} +  '\');'"> <img id="dislikebtn" src="/images/dislike.png" alt=""> </a>
+                                        <p class="sideBysideItem count" id="dislikeCount"> [[${experience.totalDislike}]] </p>
+
+                                    </div>
+
                                 </div>
                             </div>
                         </a>
