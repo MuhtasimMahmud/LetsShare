@@ -83,22 +83,22 @@ public class adminController {
 
 
     @RequestMapping("postExperience")
-    public String postExperience(@ModelAttribute("experienceObj") ApprovedExperiences approvedExperiences, Model model, HttpSession session, Principal principal){
+    public String postExperience(@ModelAttribute("experienceObj") RequestedExperiences requestedExperiences, Model model, HttpSession session, Principal principal){
 
         try{
 
-            approvedExperiences.setPostingDate(LocalDate.now());
-            approvedExperiences.setPostedBy(principal.getName()); //apatoto manually admin er mail add kore diye eta comment kore dicchi. pore admin
-                                                                  //role add kore admin login korele then ei line ta abar comment out kore dibo
-//            approvedExperiences.setPostedBy("admin@gmail.com"); // ei line ta tokhon dlt kore dibo
+            requestedExperiences.setPostingDate(LocalDate.now());
+            requestedExperiences.setPostedBy(principal.getName());
+            requestedExperiences.setTotalLike(0);
+            requestedExperiences.setTotalDislike(0);
+            RequestedExperiences result = requestedExpRepository.save(requestedExperiences);
 
-            approvedExperiences.setTotalLike(0);
-            approvedExperiences.setTotalDislike(0);
 
-            ApprovedExperiences result = approvedExpRepository.save(approvedExperiences);
+            model.addAttribute("experienceObj", new RequestedExperiences());
+            session.setAttribute("message", new Message("As you are admin, so please approve your own experience from requested experience list.", "alert-success"));
 
-            model.addAttribute("experienceObj", new ApprovedExperiences());
-            session.setAttribute("message", new Message("Your experience is posted to the approved list directly(as your are admin).", "alert-success"));
+
+
 
             return "admin/writeExperience";
 
@@ -106,7 +106,7 @@ public class adminController {
 
             exception.printStackTrace();
             session.setAttribute("message", new Message("There is some problem happened. Please try again with correct info.", "alert-danger"));
-            model.addAttribute("experienceObj", approvedExperiences);
+            model.addAttribute("experienceObj", requestedExperiences);
 
             return "admin/writeExperience";
         }
