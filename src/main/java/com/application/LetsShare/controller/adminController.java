@@ -88,9 +88,12 @@ public class adminController {
         try{
 
             approvedExperiences.setPostingDate(LocalDate.now());
-//            approvedExperiences.setPostedBy(principal.getName()); //apatoto manually admin er mail add kore diye eta comment kore dicchi. pore admin
+            approvedExperiences.setPostedBy(principal.getName()); //apatoto manually admin er mail add kore diye eta comment kore dicchi. pore admin
                                                                   //role add kore admin login korele then ei line ta abar comment out kore dibo
-            approvedExperiences.setPostedBy("admin@gmail.com"); // ei line ta tokhon dlt kore dibo
+//            approvedExperiences.setPostedBy("admin@gmail.com"); // ei line ta tokhon dlt kore dibo
+
+            approvedExperiences.setTotalLike(0);
+            approvedExperiences.setTotalDislike(0);
 
             ApprovedExperiences result = approvedExpRepository.save(approvedExperiences);
 

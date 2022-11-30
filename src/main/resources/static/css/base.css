@@ -80,6 +80,21 @@
     height: 250px;
 }
 
+/*display: inline-block
+display: inline-block*/
+
+/*sideByside item*/
+.sideBysideItem{
+    display: inline-block;
+}
+
+
+
+/*Like div*/
+.likeDiv{
+    margin-top: 10px;
+}
+
 /*Like button*/
 
 #likebtn{
@@ -88,9 +103,19 @@
     color: blue;
 }
 
+/*dislike button*/
+
+#dislikebtn{
+    margin-left: 25px;
+    height: 14px;
+    width: 14px;
+    color: blue;
+}
+
 /*like count num*/
 
-#count{
+.count{
+    margin-left: 3px;
     height: 14px;
     width: 14px;
 }

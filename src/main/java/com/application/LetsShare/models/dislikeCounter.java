@@ -1,24 +1,29 @@
 package com.application.LetsShare.models;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class likeCounter {
+public class dislikeCounter {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private int experienceId;
-    private String likedBy;
+    private String dislikedBy;
 
-
-    public likeCounter() {
+    public dislikeCounter(){
 
     }
+
+    public dislikeCounter(int id, int experienceId, String dislikedBy) {
+        this.id = id;
+        this.experienceId = experienceId;
+        this.dislikedBy = dislikedBy;
+    }
+
 
     public int getId() {
         return id;
@@ -36,11 +41,11 @@ public class likeCounter {
         this.experienceId = experienceId;
     }
 
-    public String getLikedBy() {
-        return likedBy;
+    public String getDislikedBy() {
+        return dislikedBy;
     }
 
-    public void setLikedBy(String likedBy) {
-        this.likedBy = likedBy;
+    public void setDislikedBy(String dislikedBy) {
+        this.dislikedBy = dislikedBy;
     }
 }

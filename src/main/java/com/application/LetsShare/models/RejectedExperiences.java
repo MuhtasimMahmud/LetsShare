@@ -17,14 +17,15 @@ public class RejectedExperiences{
     private String jobType; // software/HR/Marketing
     private String experienceSummary = "";
     private String postedBy;
-
     private String image;
+    private int totalLike;
+    private int totalDislike;
 
     public RejectedExperiences(){
 
     }
 
-    public RejectedExperiences(int id, String candidateNickname, String position, String officeName, String experience, LocalDate postingDate, String jobType, String experienceSummary, String postedBy, String image) {
+    public RejectedExperiences(int id, String candidateNickname, String position, String officeName, String experience, LocalDate postingDate, String jobType, String experienceSummary, String postedBy, String image, int totalLike, int totalDislike) {
         this.id = id;
         this.candidateNickname = candidateNickname;
         this.position = position;
@@ -35,6 +36,8 @@ public class RejectedExperiences{
         this.experienceSummary = experienceSummary;
         this.postedBy = postedBy;
         this.image = image;
+        this.totalLike = totalLike;
+        this.totalDislike = totalDislike;
     }
 
     public int getId() {
@@ -115,5 +118,21 @@ public class RejectedExperiences{
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getTotalLike() {
+        return totalLike;
+    }
+
+    public void setTotalLike(int totalLike) {
+        this.totalLike = totalLike;
+    }
+
+    public int getTotalDislike() {
+        return totalDislike;
+    }
+
+    public void setTotalDislike(int totalDislike) {
+        this.totalDislike = totalDislike;
     }
 }

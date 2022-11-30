@@ -85,6 +85,10 @@ public class registeredUserController {
         List<ApprovedExperiences> experiences = approvedExpRepository.findAll("Software");
         model.addAttribute("experiences", experiences);
         model.addAttribute("expCount", experiences.size());
+
+        // eije eikhane kisu ekta korte hobe like and dislike count er jonno.
+
+
         return "RegisteredUsers/SoftwareExperiencePage";
     }
 
@@ -122,6 +126,8 @@ public class registeredUserController {
 
             requestedExperiences.setPostingDate(LocalDate.now());
             requestedExperiences.setPostedBy(principal.getName());
+            requestedExperiences.setTotalLike(0);
+            requestedExperiences.setTotalDislike(0);
             RequestedExperiences result = requestedExpRepository.save(requestedExperiences);
 
 
@@ -151,6 +157,9 @@ public class registeredUserController {
 
         return "RegisteredUsers/fullExperience";
     }
+
+
+
 
 }
 
