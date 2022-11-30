@@ -166,6 +166,8 @@ public class adminController {
         approvedExperience.setExperienceSummary(requestedExperience.getExperienceSummary());
         approvedExperience.setPostedBy(requestedExperience.getPostedBy());
         approvedExperience.setImage(requestedExperience.getImage());
+        approvedExperience.setTotalLike(requestedExperience.getTotalLike());
+        approvedExperience.setTotalDislike(requestedExperience.getTotalDislike());
 
 
         try{
@@ -195,7 +197,9 @@ public class adminController {
         rejectedExperiences.setJobType(requestedExperience.getJobType());
         rejectedExperiences.setExperienceSummary(requestedExperience.getExperienceSummary());
         rejectedExperiences.setPostedBy(requestedExperience.getPostedBy());
-        rejectedExperiences.setImage(rejectedExperiences.getImage());
+        rejectedExperiences.setImage(requestedExperience.getImage());
+        rejectedExperiences.setTotalLike(requestedExperience.getTotalLike());
+        rejectedExperiences.setTotalDislike(requestedExperience.getTotalDislike());
 
         try{
             if(requestedExperience != null){
@@ -226,6 +230,8 @@ public class adminController {
         rejectedExperience.setExperienceSummary(approvedExperience.getExperienceSummary());
         rejectedExperience.setPostedBy(approvedExperience.getPostedBy());
         rejectedExperience.setImage(approvedExperience.getImage());
+        rejectedExperience.setTotalLike(approvedExperience.getTotalLike());
+        rejectedExperience.setTotalDislike(approvedExperience.getTotalDislike());
 
         try{
             if(approvedExperience != null){
@@ -257,6 +263,8 @@ public class adminController {
         approvedExperience.setExperienceSummary(rejectedExperience.getExperienceSummary());
         approvedExperience.setPostedBy(rejectedExperience.getPostedBy());
         approvedExperience.setImage(rejectedExperience.getImage());
+        approvedExperience.setTotalLike(rejectedExperience.getTotalLike());
+        approvedExperience.setTotalDislike(rejectedExperience.getTotalDislike());
 
         try{
             if(approvedExperience != null){

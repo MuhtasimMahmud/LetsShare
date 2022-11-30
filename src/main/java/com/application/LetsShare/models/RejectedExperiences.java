@@ -7,7 +7,6 @@ import java.time.LocalDate;
 public class RejectedExperiences{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String candidateNickname;
     private String position;

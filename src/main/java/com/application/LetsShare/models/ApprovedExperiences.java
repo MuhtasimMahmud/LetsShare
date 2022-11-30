@@ -11,7 +11,6 @@ import java.time.LocalDate;
 public class ApprovedExperiences{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String candidateNickname;
     private String position;
