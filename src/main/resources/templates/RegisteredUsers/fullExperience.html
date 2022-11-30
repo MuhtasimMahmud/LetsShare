@@ -16,7 +16,7 @@
             <div class="fullExp">
                 <div class="container">
 
-                    <img src="https://www.ecotextile.com/images/stories/2020/March/HM_corona.jpg" alt="">
+                    <img th:src="${experience.image}" alt="">
 
                     <div class="title mb-4">
                         <h3> <span th:text="${experience.candidateNickname}"> </span>'s interview experience at <span th:text="${experience.officeName}"></span> </h3>
