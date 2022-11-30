@@ -74,7 +74,7 @@ public class registeredUserController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return "redirect:/RegisteredUsers/registeredUserProfile";
+        return "redirect:/registeredUser/myProfile";
     }
 
 
