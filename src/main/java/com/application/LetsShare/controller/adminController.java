@@ -95,7 +95,7 @@ public class adminController {
             ApprovedExperiences result = approvedExpRepository.save(approvedExperiences);
 
             model.addAttribute("experienceObj", new ApprovedExperiences());
-            session.setAttribute("message", new Message("Your experience is submitted. Wait for the approval.", "alert-success"));
+            session.setAttribute("message", new Message("Your experience is posted to the approved list directly(as your are admin).", "alert-success"));
 
             return "admin/writeExperience";
 

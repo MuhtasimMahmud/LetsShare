@@ -63,8 +63,17 @@
 
                                     <!-- jobType field-->
                                     <div class="form-group col-md-6">
-                                        <label for="jobType_field">Job Type</label>
-                                        <input name="jobType" type="text" class="form-control" id="jobType_field" placeholder="Software/HR/Marketing" th:value="${experienceObj.jobType}">
+                                        <label>Job Type</label>
+<!--                                        <input name="jobType" type="text" class="form-control" id="jobType_field" placeholder="Software/HR/Marketing" th:value="${experienceObj.jobType}">-->
+
+
+                                        <select required name="jobType" class="custom-select" id="inputGroupSelect">
+                                            <option> Choose a job type </option>
+                                            <option value="Software"> Software </option>
+                                            <option value="HR"> HR </option>
+                                            <option value="Marketing"> Marketing </option>
+                                        </select>
+
                                     </div>
 
                                 </div>
