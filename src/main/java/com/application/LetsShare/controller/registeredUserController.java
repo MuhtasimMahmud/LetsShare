@@ -116,25 +116,13 @@ public class registeredUserController {
 
 
     @PostMapping("postExperience")
-    public String postExperience(
-            @ModelAttribute("experienceObj") RequestedExperiences requestedExperiences, Model model,
-            HttpSession session, @RequestParam("image") MultipartFile file, Principal principal) throws IOException {
+    public String postExperience(@ModelAttribute("experienceObj") RequestedExperiences requestedExperiences, Model model, HttpSession session, Principal principal){
 
         try{
 
             requestedExperiences.setPostingDate(LocalDate.now());
             requestedExperiences.setPostedBy(principal.getName());
             RequestedExperiences result = requestedExpRepository.save(requestedExperiences);
-
-
-            if(!file.isEmpty()){
-                StringBuilder fileNames = new StringBuilder();
-                Path fileNameAndPath = Paths.get("static/experienceImages", file.getOriginalFilename());
-                fileNames.append(file.getOriginalFilename());
-                Files.write(fileNameAndPath, file.getBytes());
-                model.addAttribute("msg", "Uploaded images: " + fileNames.toString());
-            }
-
 
 
             model.addAttribute("experienceObj", new RequestedExperiences());

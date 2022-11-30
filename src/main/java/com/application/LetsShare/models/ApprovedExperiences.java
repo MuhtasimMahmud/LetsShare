@@ -22,13 +22,13 @@ public class ApprovedExperiences{
     private String experienceSummary = "";
     private String postedBy;
 
-    private String photo;
+    private String image;
 
     public ApprovedExperiences(){
 
     }
 
-    public ApprovedExperiences(int id, String candidateNickname, String position, String officeName, String experience, LocalDate postingDate, String jobType, String experienceSummary, String postedBy, String photo) {
+    public ApprovedExperiences(int id, String candidateNickname, String position, String officeName, String experience, LocalDate postingDate, String jobType, String experienceSummary, String postedBy, String image) {
         this.id = id;
         this.candidateNickname = candidateNickname;
         this.position = position;
@@ -38,7 +38,7 @@ public class ApprovedExperiences{
         this.jobType = jobType;
         this.experienceSummary = experienceSummary;
         this.postedBy = postedBy;
-        this.photo = photo;
+        this.image = image;
     }
 
     public int getId() {
@@ -47,6 +47,14 @@ public class ApprovedExperiences{
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getCandidateNickname() {
+        return candidateNickname;
+    }
+
+    public void setCandidateNickname(String candidateNickname) {
+        this.candidateNickname = candidateNickname;
     }
 
     public String getPosition() {
@@ -97,14 +105,6 @@ public class ApprovedExperiences{
         this.experienceSummary = experienceSummary;
     }
 
-    public String getCandidateNickname() {
-        return candidateNickname;
-    }
-
-    public void setCandidateNickname(String candidateNickname) {
-        this.candidateNickname = candidateNickname;
-    }
-
     public String getPostedBy() {
         return postedBy;
     }
@@ -113,12 +113,11 @@ public class ApprovedExperiences{
         this.postedBy = postedBy;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getImage() {
+        return image;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setImage(String image) {
+        this.image = image;
     }
-
 }
