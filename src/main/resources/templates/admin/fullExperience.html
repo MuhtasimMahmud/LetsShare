@@ -31,10 +31,26 @@
                         <h6> <span th:text="${postingPerson.name}"> </span> </h6>
                         <h6> <span th:text="${postingPerson.position}"> </span> </h6>
                         <h6> <span th:text="${postingPerson.officeName}"> </span> (Currently working here) </h6>
-
                     </div>
+
                 </div>
             </div>
+
+
+            <div class="likeDiv text-center">
+
+                <a class="sideBysideItem" th:onclick= "'work(\''  + ${experience.id} +  '\');'"> <img id="likebtn" src="/images/like.png" alt=""> </a>
+                <p class="sideBysideItem count" id="likeCount"> [[${experience.totalLike}]] </p>
+
+                <a class="sideBysideItem" th:onclick= "'work(\''  + ${experience.id} +  '\');'"> <img id="dislikebtn" src="/images/dislike.png" alt=""> </a>
+                <p class="sideBysideItem count" id="dislikeCount"> [[${experience.totalDislike}]] </p>
+
+            </div>
+
+
+
+
+
         </section>
     </body>
 </html>

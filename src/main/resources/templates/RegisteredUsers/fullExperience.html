@@ -36,6 +36,18 @@
                 </div>
             </div>
 
+
+            <div class="likeDiv text-center">
+
+                <a class="sideBysideItem" th:onclick= "'work(\''  + ${experience.id} +  '\');'"> <img id="likebtn" src="/images/like.png" alt=""> </a>
+                <p class="sideBysideItem count" id="likeCount"> [[${experience.totalLike}]] </p>
+
+                <a class="sideBysideItem" th:onclick= "'work(\''  + ${experience.id} +  '\');'"> <img id="dislikebtn" src="/images/dislike.png" alt=""> </a>
+                <p class="sideBysideItem count" id="dislikeCount"> [[${experience.totalDislike}]] </p>
+
+            </div>
+
+
         </section>
 
 
