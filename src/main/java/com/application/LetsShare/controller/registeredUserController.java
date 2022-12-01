@@ -84,16 +84,12 @@ public class registeredUserController {
     }
 
 
-
     @RequestMapping("SoftwareExperiencePage")
     public String software(Model model){
 
         List<ApprovedExperiences> experiences = approvedExpRepository.findAll("Software");
         model.addAttribute("experiences", experiences);
         model.addAttribute("expCount", experiences.size());
-
-        // eije eikhane kisu ekta korte hobe like and dislike count er jonno.
-
 
         return "RegisteredUsers/SoftwareExperiencePage";
     }
@@ -152,6 +148,7 @@ public class registeredUserController {
         }
     }
 
+
     @RequestMapping("/fullExperience/{id}")
     public String fullView(@PathVariable("id") int id, Model model){
 
@@ -177,8 +174,35 @@ public class registeredUserController {
         return "RegisteredUsers/editableExperience";
     }
 
-//    @RequestMapping("updateExperience")
-    // new experience post er moto korei edit ta korbo
+
+    @RequestMapping(value = "/updateExperience", method = RequestMethod.POST)
+    public String updateExperience(@ModelAttribute("experienceObj") ApprovedExperiences updatedApprovedExperiences, HttpSession session){
+
+        ApprovedExperiences existingApprovedExperiences = approvedExpRepository.findById(updatedApprovedExperiences.getId());
+        String url = "";
+
+
+        try{
+            if(existingApprovedExperiences != null){
+
+                existingApprovedExperiences.setExperience(updatedApprovedExperiences.getExperience());
+                existingApprovedExperiences.setExperienceSummary(updatedApprovedExperiences.getExperienceSummary());
+
+                approvedExpRepository.save(existingApprovedExperiences);
+
+                session.setAttribute("message", new Message("Your experience is updated. You can check by clicking view button besides updated button.", "alert-success"));
+
+                url = "redirect:/registeredUser/editExperience/"+existingApprovedExperiences.getId();
+            }
+
+        }catch (Exception exception){
+            exception.printStackTrace();
+            session.setAttribute("message", new Message("Sorry, your experience is not updated.", "alert-success"));
+            url = "redirect:/registeredUser/editExperience/"+existingApprovedExperiences.getId();
+        }
+
+        return url;
+    }
 
 
 

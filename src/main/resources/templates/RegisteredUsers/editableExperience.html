@@ -34,47 +34,60 @@
                     </div>
 
 
-                    <h1 class="text-center heading mb-5"> Edit Your Experience </h1>
+<!--                    <h1 class="text-center heading mb-5"> Edit Your Experience </h1>-->
+
+                    <h5 class="text-center heading mb-5"> You have posted this experience on : [[${experienceObj.postingDate}]]</h5>
 
                     <form action="" th:action="@{/registeredUser/updateExperience}" method="post" th:object="${experienceObj}">
 
-                        <div class="form-row">
-                            <!-- Candidate nickName field-->
+
+                        <!-- etar visibility hidden kore rakhsi cz ami ei part tuku rakhte chaisilam na but ei part tuku na rakhle
+                             hobena karon eikhane je id er value ta oita eikhan thekei jacche. eikhane input field e 'id' name diye id er value ta
+                             pass hocche controller e. eikhane prothome attribute diye tw ashse ekta object jetake amra controller theke nam disilam
+                             experienceObj. so oita diye input field gula fillUp korlam. oita ekta object niye ashse. kintu amra akhon abar controller e je
+                             pathabo ekta ekta object oita hocche th:object="${experienceObj}" ar ei object ta pathaya oitar id ta controller diye dhorei
+                             tw baki update er kaj ta kortesi. so akhon jodi id field ta na rakhi, mane hocche input diye oita te 'id' nam ta na dei taile
+                             experienceObj e id jabena kuno. id null jabe. so tokhon ar controller dhorte parbena kisu. error dibe. so etar jonno ei part tuku
+                             rakhsi. but amar kase design ta vallagtesena dekhe eta hidden kore rakhsi ar ki. main kaj o hoye gelo abar amar design o thik thak
+                             thaklo.-->
+
+                        <div style="visibility: hidden" class="form-row">
+                            <!-- experience id field-->
                             <div class="form-group col-md-6">
-                                <label for="name_field">Your Name</label>
-                                <input name="candidateNickname" type="text" class="form-control" id="name_field" placeholder="Your nick name" th:value="${experienceObj.candidateNickname}">
+                                <label for="id_field">Experience id</label>
+                                <input name="id" type="text" class="form-control" id="id_field" placeholder="Your id" th:value="${experienceObj.id}">
                             </div>
 
-                            <!-- OfficeName field-->
-                            <div class="form-group col-md-6">
-                                <label for="officeName_field">Office name</label>
-                                <input name="officeName" type="text" class="form-control" id="officeName_field" placeholder="Office name" th:value="${experienceObj.officeName}">
-                            </div>
+<!--                            &lt;!&ndash; OfficeName field&ndash;&gt;-->
+<!--                            <div class="form-group col-md-6">-->
+<!--                                <label for="officeName_field">Office name</label>-->
+<!--                                <input name="officeName" type="text" class="form-control" id="officeName_field" placeholder="Office name" th:value="${experienceObj.officeName}">-->
+<!--                            </div>-->
 
                         </div>
 
 
-                        <div class="form-row">
-                            <!-- position field-->
-                            <div class="form-group col-md-6">
-                                <label for="position_field">Position</label>
-                                <input name="position" type="text" class="form-control" id="position_field" placeholder="position you applied for" th:value="${experienceObj.position}">
-                            </div>
+<!--                        <div class="form-row">-->
+<!--                            &lt;!&ndash; position field&ndash;&gt;-->
+<!--                            <div class="form-group col-md-6">-->
+<!--                                <label for="position_field">Position</label>-->
+<!--                                <input name="position" type="text" class="form-control" id="position_field" placeholder="position you applied for" th:value="${experienceObj.position}">-->
+<!--                            </div>-->
 
-                            <!-- jobType field-->
-                            <div class="form-group col-md-6">
-                                <label>Job Type</label>
+<!--                            &lt;!&ndash; jobType field&ndash;&gt;-->
+<!--                            <div class="form-group col-md-6">-->
+<!--                                <label>Job Type</label>-->
 
-                                <select required name="jobType" th:value="${experienceObj.jobType}" class="custom-select" id="inputGroupSelect">
-                                    <option> Choose a job type </option>
-                                    <option value="Software"> Software </option>
-                                    <option value="HR"> HR </option>
-                                    <option value="Marketing"> Marketing </option>
-                                </select>
+<!--                                <select required name="jobType" class="custom-select" id="inputGroupSelect">-->
+<!--                                    <option th:value="${experienceObj.jobType}"> [[${experienceObj.jobType}]] </option>-->
+<!--                                    <option value="Software"> Software </option>-->
+<!--                                    <option value="HR"> HR </option>-->
+<!--                                    <option value="Marketing"> Marketing </option>-->
+<!--                                </select>-->
 
-                            </div>
+<!--                            </div>-->
 
-                        </div>
+<!--                        </div>-->
 
 
 
