@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
@@ -93,11 +94,8 @@ public class adminController {
             requestedExperiences.setTotalDislike(0);
             RequestedExperiences result = requestedExpRepository.save(requestedExperiences);
 
-
             model.addAttribute("experienceObj", new RequestedExperiences());
             session.setAttribute("message", new Message("As you are admin, so please approve your own experience from requested experience list.", "alert-success"));
-
-
 
 
             return "admin/writeExperience";
@@ -313,5 +311,72 @@ public class adminController {
 
         return "admin/fullExperience";
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @RequestMapping("/editExperience/{id}")
+    public String editExperience(@PathVariable("id") int id, Model model){
+
+        ApprovedExperiences experience = approvedExpRepository.findById(id);
+        User user = userRepository.findByEmail(experience.getPostedBy());
+
+        model.addAttribute("experienceObj", experience);
+        model.addAttribute("postingPerson", user);
+
+        return "admin/editableExperience";
+    }
+
+
+    @RequestMapping(value = "/updateExperience", method = RequestMethod.POST)
+    public String updateExperience(@ModelAttribute("experienceObj") ApprovedExperiences updatedApprovedExperiences, HttpSession session){
+
+        ApprovedExperiences existingApprovedExperiences = approvedExpRepository.findById(updatedApprovedExperiences.getId());
+        String url = "";
+
+        try{
+            if(existingApprovedExperiences != null){
+
+                existingApprovedExperiences.setExperience(updatedApprovedExperiences.getExperience());
+                existingApprovedExperiences.setExperienceSummary(updatedApprovedExperiences.getExperienceSummary());
+                approvedExpRepository.save(existingApprovedExperiences);
+
+                session.setAttribute("message", new Message("Your experience is updated. You can check by clicking view button besides updated button.", "alert-success"));
+                url = "redirect:/admin/editExperience/"+existingApprovedExperiences.getId();
+            }
+
+        }catch (Exception exception){
+            exception.printStackTrace();
+            session.setAttribute("message", new Message("Sorry, your experience is not updated.", "alert-success"));
+            url = "redirect:/admin/editExperience/"+existingApprovedExperiences.getId();
+        }
+
+        return url;
+    }
+
+
+
+
+
+
 
 }
