@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title>Document</title>
+
+    </head>
+
+    <body>
+
+        <section>
+            <div class="container">
+
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Experience id </th>
+                            <th>Like id </th>
+                            <th>Liked By </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr th:each="student: ${students}">
+                            <th scope="row"> [[${student.SID}]]</th>
+                            <td>[[${student.fName}]]</td>
+                            <td>[[${student.lName}]]</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+    </body>
+</html>
