@@ -11,6 +11,8 @@ public interface likeCounterRepository extends JpaRepository<likeCounter, Intege
 
     List<likeCounter> findAllByLikedBy(String email);
 
+    List<likeCounter> findAllByExperienceId(int id);
+
     @Query("select l from likeCounter l where l.experienceId = :id AND l.likedBy = :likedPersonEmail")
     public likeCounter findByExperienceId(int id, String likedPersonEmail);
 

@@ -13,7 +13,9 @@
     <body>
 
         <section>
-            <div class="container">
+            <div class="container mt-5">
+
+                <h5 class="text-center mb-5"> Persons who liked for experience id : <span th:text="${experienceID}"> </span> </h5>
 
                 <table class="table table-hover">
                     <thead class="thead-dark">
@@ -25,10 +27,10 @@
                     </thead>
 
                     <tbody>
-                        <tr th:each="student: ${students}">
-                            <th scope="row"> [[${student.SID}]]</th>
-                            <td>[[${student.fName}]]</td>
-                            <td>[[${student.lName}]]</td>
+                        <tr th:each="likedPerson: ${likedPersonsList}">
+                            <th scope="row"> [[${likedPerson.experienceId}]]</th>
+                            <td>[[${likedPerson.id}]]</td>
+                            <td>[[${likedPerson.likedBy}]]</td>
                         </tr>
                     </tbody>
                 </table>

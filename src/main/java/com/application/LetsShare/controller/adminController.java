@@ -2,10 +2,7 @@ package com.application.LetsShare.controller;
 
 import com.application.LetsShare.helper.Message;
 import com.application.LetsShare.models.*;
-import com.application.LetsShare.repositories.ApprovedExpRepository;
-import com.application.LetsShare.repositories.RejectedRepository;
-import com.application.LetsShare.repositories.RequestedExpRepository;
-import com.application.LetsShare.repositories.UserRepository;
+import com.application.LetsShare.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,6 +32,12 @@ public class adminController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    likeCounterRepository likeCounterRepository;
+
+    @Autowired
+    dislikeCounterRepository dislikeCounterRepository;
 
 
     @RequestMapping("adminDashboard")
@@ -313,27 +316,6 @@ public class adminController {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @RequestMapping("/editExperience/{id}")
     public String editExperience(@PathVariable("id") int id, Model model){
 
@@ -374,8 +356,22 @@ public class adminController {
     }
 
 
+    @RequestMapping("seeWhoLiked/{id}")
+    public String seeWhoLiked(@PathVariable("id") int id, Model model){
+
+        List<likeCounter> likedPersonsList = likeCounterRepository.findAllByExperienceId(id);
+        model.addAttribute("likedPersonsList", likedPersonsList);
+        model.addAttribute("experienceID", id);
+
+        return "admin/likedPersonsList";
+    }
 
 
+    @RequestMapping("seeWhoDisliked/{id}")
+    public String seeWhoDisliked(){
+
+        return "";
+    }
 
 
 
