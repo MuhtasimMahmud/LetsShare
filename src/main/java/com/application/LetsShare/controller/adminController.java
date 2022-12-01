@@ -368,9 +368,14 @@ public class adminController {
 
 
     @RequestMapping("seeWhoDisliked/{id}")
-    public String seeWhoDisliked(){
+    public String seeWhoDisliked(@PathVariable("id") int id, Model model){
 
-        return "";
+        List<dislikeCounter> dislikeCounterList = dislikeCounterRepository.findAllByExperienceId(id);
+        model.addAttribute("dislikedPersonsList", dislikeCounterList);
+        model.addAttribute("experienceID", id);
+
+        return "admin/dislikedPersonsList";
+
     }
 
 
