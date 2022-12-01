@@ -1,8 +1,9 @@
 # LetsShare
 
-Project summary : 
+This is a web applicaiton. I've used java programming language and used spring boot framework. For database i've used mySql. For frontend i've used HTML5, CSS3, Bootstrap4.
 
-This is a platform (web application) in which people can share specific software, HR and marketing jobs interview experience. All user can read the shared experiences without registering an account but if he/she wants to share own experience, then he/she has te register their account. Then they can write their own experience and request to post it. Only approved experienced will be shown to the users. There is an admin who will take care of this requests and others. 
+
+Project summary :  This is a platform (web application) in which people can share specific software, HR and marketing jobs interview experience. All user can read the shared experiences without registering an account but if he/she wants to share own experience, then he/she has te register their account. Then they can write their own experience and request to post it. Only approved experienced will be shown to the users. There is an admin who will take care of this requests and others. 
 
 
 Features : 
