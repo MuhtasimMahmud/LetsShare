@@ -36,7 +36,7 @@
 
 <!--                    <h1 class="text-center heading mb-5"> Edit Your Experience </h1>-->
 
-                    <h5 class="text-center heading mb-5"> You have posted this experience on : [[${experienceObj.postingDate}]]</h5>
+                    <h5 class="text-center heading mb-2"> You have posted this experience on : [[${experienceObj.postingDate}]]</h5>
 
                     <form action="" th:action="@{/registeredUser/updateExperience}" method="post" th:object="${experienceObj}">
 
@@ -116,6 +116,13 @@
                             <button type="submit" class="btn btn-success mt-4">
                                 Update
                             </button>
+
+
+                            <a th:href="@{/registeredUser/fullExperience/{id}(id = ${experienceObj.id})}">
+                                <button type="button" class="btn btn-warning mt-4">
+                                    Full View
+                                </button>
+                            </a>
 
                         </div>
 

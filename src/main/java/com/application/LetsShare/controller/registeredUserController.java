@@ -181,17 +181,14 @@ public class registeredUserController {
         ApprovedExperiences existingApprovedExperiences = approvedExpRepository.findById(updatedApprovedExperiences.getId());
         String url = "";
 
-
         try{
             if(existingApprovedExperiences != null){
 
                 existingApprovedExperiences.setExperience(updatedApprovedExperiences.getExperience());
                 existingApprovedExperiences.setExperienceSummary(updatedApprovedExperiences.getExperienceSummary());
-
                 approvedExpRepository.save(existingApprovedExperiences);
 
                 session.setAttribute("message", new Message("Your experience is updated. You can check by clicking view button besides updated button.", "alert-success"));
-
                 url = "redirect:/registeredUser/editExperience/"+existingApprovedExperiences.getId();
             }
 
