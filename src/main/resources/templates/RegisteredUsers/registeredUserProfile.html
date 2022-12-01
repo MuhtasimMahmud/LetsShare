@@ -90,14 +90,14 @@
 
         <div class="container mb-5">
 
-            <h3 class="mt-4 mb-4 text-center"> Your shared Experiences</h3>
+            <h3 class="mt-4 mb-4 text-center"> Your shared Experiences which are approved </h3>
 
             <div class="card-deck experience-cards" th:each="experience : ${experiences}">
 
                 <div class="experience row">
 
                     <div class="crd col-md-9">
-                        <a th:href="@{/registeredUser/fullExperience/{id}(id = ${experience.id})}">
+                        <a th:href="@{/registeredUser/editExperience/{id}(id = ${experience.id})}">
                                 <div class="card">
                                     <img class="card-img-top" th:src="${experience.image}" alt="Card image cap">
                                     <div class="card-body">

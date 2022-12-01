@@ -165,6 +165,24 @@ public class registeredUserController {
     }
 
 
+    @RequestMapping("/editExperience/{id}")
+    public String editExperience(@PathVariable("id") int id, Model model){
+
+        ApprovedExperiences experience = approvedExpRepository.findById(id);
+        User user = userRepository.findByEmail(experience.getPostedBy());
+
+        model.addAttribute("experienceObj", experience);
+        model.addAttribute("postingPerson", user);
+
+        return "RegisteredUsers/editableExperience";
+    }
+
+//    @RequestMapping("updateExperience")
+    // new experience post er moto korei edit ta korbo
+
+
+
+
     @RequestMapping("myLikedExperiences")
     public String myLikedExperiences(Model model, Principal principal){
 
@@ -183,6 +201,8 @@ public class registeredUserController {
 
         return "RegisteredUsers/myLikedExperiences";
     }
+
+
 
 
 
