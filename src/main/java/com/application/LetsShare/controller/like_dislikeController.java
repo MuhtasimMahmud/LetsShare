@@ -35,13 +35,14 @@ public class like_dislikeController {
     public String likeExperience(@PathVariable("id") int id, Model model, Principal principal){
 
 
-        // if the current user not liked this post previously, only then we are giving access to like the post.
 
         likeCounter likedPosts = likeCounterRepository.findByExperienceId(id, principal.getName());
 
         ApprovedExperiences approvedExperience = approvedExpRepository.findById(id);
         String jobType = approvedExperience.getJobType();
 
+
+        // if the current user not liked this post previously, only then we are giving access to like the post.
 
         if(likedPosts == null){
             approvedExperience.setTotalLike(approvedExperience.getTotalLike()+1);
@@ -69,14 +70,22 @@ public class like_dislikeController {
 
         }else{
 
-            switch (jobType) {
-                case "Software":
-                    return "redirect:/registeredUser/SoftwareExperiencePage";
-                case "HR":
-                    return "redirect:/registeredUser/HR_ExperiencePage";
-                case "Marketing":
-                    return "redirect:/registeredUser/MarketingExperiencePage";
-            }
+            // if this user already liked this post once then if he click like again then like will be removed.
+
+            approvedExperience.setTotalLike(approvedExperience.getTotalLike() - 1);
+
+            approvedExpRepository.save(approvedExperience);
+
+            likeCounterRepository.delete(likedPosts);
+
+//            switch (jobType) {
+//                case "Software":
+//                    return "redirect:/registeredUser/SoftwareExperiencePage";
+//                case "HR":
+//                    return "redirect:/registeredUser/HR_ExperiencePage";
+//                case "Marketing":
+//                    return "redirect:/registeredUser/MarketingExperiencePage";
+//            }
 
         }
 
@@ -130,14 +139,22 @@ public class like_dislikeController {
 
         }else{
 
-            switch (jobType) {
-                case "Software":
-                    return "redirect:/registeredUser/SoftwareExperiencePage";
-                case "HR":
-                    return "redirect:/registeredUser/HR_ExperiencePage";
-                case "Marketing":
-                    return "redirect:/registeredUser/MarketingExperiencePage";
-            }
+            // if this user already disliked this post then if he clicks it again then his dislike will be removed
+
+            approvedExperience.setTotalDislike(approvedExperience.getTotalDislike() - 1);
+            approvedExpRepository.save(approvedExperience);
+
+            dislikeCounterRepository.delete(dislikedPosts);
+
+
+//            switch (jobType) {
+//                case "Software":
+//                    return "redirect:/registeredUser/SoftwareExperiencePage";
+//                case "HR":
+//                    return "redirect:/registeredUser/HR_ExperiencePage";
+//                case "Marketing":
+//                    return "redirect:/registeredUser/MarketingExperiencePage";
+//            }
 
         }
 
@@ -192,7 +209,13 @@ public class like_dislikeController {
 
         }else{
 
-            return "redirect:/admin/approvedExperiences";
+            approvedExperience.setTotalLike(approvedExperience.getTotalLike() - 1);
+
+            approvedExpRepository.save(approvedExperience);
+
+            likeCounterRepository.delete(likedPosts);
+
+//            return "redirect:/admin/approvedExperiences";
         }
 
         return "redirect:/admin/approvedExperiences";
@@ -223,7 +246,6 @@ public class like_dislikeController {
 
             dislikeCounterRepository.save(dislikePost);
 
-
             // if this current user already liked this post previously, then here we are removing that like as now the user is giving dislike.
 
             likeCounter likedPosts = likeCounterRepository.findByExperienceId(id, principal.getName());
@@ -238,7 +260,12 @@ public class like_dislikeController {
 
         }else{
 
-            return "redirect:/admin/approvedExperiences";
+            approvedExperience.setTotalDislike(approvedExperience.getTotalDislike() - 1);
+            approvedExpRepository.save(approvedExperience);
+
+            dislikeCounterRepository.delete(dislikedPosts);
+
+//            return "redirect:/admin/approvedExperiences";
         }
 
         return "redirect:/admin/approvedExperiences";
