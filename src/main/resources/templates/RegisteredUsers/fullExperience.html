@@ -18,9 +18,9 @@
 
                     <img th:src="${experience.image}" alt="">
 
-                    <div class="title mb-4">
+                    <div class="title mb-5">
                         <h3> <span th:text="${experience.candidateNickname}"> </span>'s interview experience at <span th:text="${experience.officeName}"></span> </h3>
-                        <h6> Posted on : <span th:text="${experience.postingDate}"></span> </h6>
+                        <h6> Job title : <span th:text="${experience.position}"> </span> <span style="margin-left: 10px; margin-right: 10px;"> | </span> Posted on : <span th:text="${experience.postingDate}"></span>  </h6>
                     </div>
 
                     <p> <span th:text="${experience.experience}"> </span> </p>

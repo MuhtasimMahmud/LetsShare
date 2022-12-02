@@ -18,9 +18,11 @@
 
                     <img th:src="${experience.image}" alt="Card image cap">
 
-                    <div class="title mb-4">
+                    <div class="title mb-5">
                         <h3> <span th:text="${experience.candidateNickname}"> </span>'s interview experience at <span th:text="${experience.officeName}"></span> </h3>
-                        <h6> Experience ID : <span th:text="${experience.id}"></span>  ||   Posted on : <span th:text="${experience.postingDate}"></span> </h6>
+                        <h6> Experience ID : <span th:text="${experience.id}"> </span>  <span style="margin-left: 4px; margin-right: 4px;"> | </span>
+                             Job title : <span th:text="${experience.position}"> </span> <span style="margin-left: 4px; margin-right: 4px;"> | </span>
+                             Posted on : <span th:text="${experience.postingDate}"></span> </h6>
 
                     </div>
 
@@ -32,6 +34,7 @@
                         <h6> <span th:text="${postingPerson.name}"> </span> </h6>
                         <h6> <span th:text="${postingPerson.position}"> </span> </h6>
                         <h6> <span th:text="${postingPerson.officeName}"> </span> (Currently working here) </h6>
+
                     </div>
 
                 </div>

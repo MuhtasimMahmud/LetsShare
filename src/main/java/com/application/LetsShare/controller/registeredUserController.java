@@ -186,6 +186,7 @@ public class registeredUserController {
 
                 existingApprovedExperiences.setExperience(updatedApprovedExperiences.getExperience());
                 existingApprovedExperiences.setExperienceSummary(updatedApprovedExperiences.getExperienceSummary());
+                existingApprovedExperiences.setImage(updatedApprovedExperiences.getImage());
                 approvedExpRepository.save(existingApprovedExperiences);
 
                 session.setAttribute("message", new Message("Your experience is updated. You can check by clicking view button besides updated button.", "alert-success"));
