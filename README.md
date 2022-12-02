@@ -28,31 +28,35 @@ This is a platform (web application) in which people can share specific software
 
 4. Share experiences : 
 
-      - Only registered users can post an experience and request to post it.
+      - Only registered users and admin can post own experiences.
 
 
 5. User Feedback : 
 
      - like and dislike button in each experiences
-     - only registered user can give feedback through the like and dislike button.
+     - registered user can give feedback through the like and dislike button.
+     - admin can also like and dislike experiences
 
 
 6. Registered user profile :
 
-     - can update own information in the profile.
+     - can update own profile information in the profile.
      - can view own shared experiences from own profile.
-     - can edit own experiences.
+     - can edit the experiences which are shared by ownself.
 
 
 7. Admin panel :
 
       - Admin can view all the requested experiences.
       - can reject or approve experiences from requested list.
-      - can differently view the rejected and approved list.
+      - rejected experiences will be showed in another page and admin can access them.
+      - approved experiences will also be shown in different page and only admin can acces those.
       - can approve again from rejected list.
       - can reject again from approved list.
       - can share experiences.
       - can view own experiences and edit own info from own profile.
+      - can edit the experiences which are shared by ownself.
+      - only admin can see who liked or who disliked on any post. normal user only can see the total like or dislike count but can't see the persons list who liked or         disliked.
       
      
 
