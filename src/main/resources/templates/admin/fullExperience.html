@@ -38,7 +38,7 @@
             </div>
 
 
-            <div class="likeDiv text-center">
+            <div class="likeDiv text-center mb-4">
 
                 <a class="sideBysideItem" th:onclick= "'work(\''  + ${experience.id} +  '\');'" th:href="@{/admin/seeWhoLiked/{id}(id = ${experience.id})}" > <img id="likebtn" src="/images/like.png" alt=""> </a>
                 <p class="sideBysideItem count" id="likeCount"> [[${experience.totalLike}]] </p>
