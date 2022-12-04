@@ -2,7 +2,7 @@
 function like(id){
 
     let httpRequest = new XMLHttpRequest();
-    httpRequest.open("GET", 'http://localhost:8080/registeredUser/likePost/'+id);
+    httpRequest.open("GET", 'http://localhost:8080/likePost/'+id);
     httpRequest.send();
 
     httpRequest.onload = function (){
@@ -15,7 +15,7 @@ function like(id){
 function dislike(id){
 
     let httpRequest = new XMLHttpRequest();
-    httpRequest.open("GET", 'http://localhost:8080/registeredUser/dislikePost/'+id);
+    httpRequest.open("GET", 'http://localhost:8080/dislikePost/'+id);
     httpRequest.send();
 
     httpRequest.onload = function (){

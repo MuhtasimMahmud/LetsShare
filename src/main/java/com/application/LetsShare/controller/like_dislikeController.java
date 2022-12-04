@@ -33,7 +33,7 @@ public class like_dislikeController {
 
     // RegisteredUser : like experiences
 
-    @RequestMapping("/registeredUser/likePost/{id}")
+    @RequestMapping("/likePost/{id}")
     public int likeExperience(@PathVariable("id") int id, Model model, Principal principal){
 
 
@@ -90,7 +90,7 @@ public class like_dislikeController {
 
     // RegisterUser : dislike experience
 
-    @RequestMapping("/registeredUser/dislikePost/{id}")
+    @RequestMapping("/dislikePost/{id}")
     public int dislikeExperience(@PathVariable("id") int id, Model model, Principal principal){
 
         // if the current user not disliked this post previously, only then we are giving access to dislike this post.
