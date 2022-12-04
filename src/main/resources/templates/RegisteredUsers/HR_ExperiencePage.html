@@ -36,11 +36,11 @@
 
                                         <div class="likeDiv">
 
-                                            <a class="sideBysideItem" th:onclick= "'work(\''  + ${experience.id} +  '\');'" th:href="@{/registeredUser/likePost/{id}(id = ${experience.id})}"> <img id="likebtn" src="/images/like.png" alt=""> </a>
-                                            <p class="sideBysideItem count" id="likeCount"> [[${experience.totalLike}]] </p>
+                                            <a class="sideBysideItem" th:onclick= "'like(\''  + ${experience.id} +  '\');'"> <img id="likebtn" src="/images/like.png" alt=""> </a>
+                                            <p th:onload="'dislike(\''  + ${experience.id} +  '\');'" class="sideBysideItem count" th:id=" 'like' +${experience.id}"> [[${experience.totalLike}]] </p>
 
-                                            <a class="sideBysideItem" th:onclick= "'work(\''  + ${experience.id} +  '\');'" th:href="@{/registeredUser/dislikePost/{id}(id = ${experience.id})}"> <img id="dislikebtn" src="/images/dislike.png" alt=""> </a>
-                                            <p class="sideBysideItem count" id="dislikeCount"> [[${experience.totalDislike}]] </p>
+                                            <a class="sideBysideItem" th:onclick= "'dislike(\''  + ${experience.id} +  '\');'"> <img id="dislikebtn" src="/images/dislike.png" alt=""> </a>
+                                            <p class="sideBysideItem count" th:id=" 'dislike' +${experience.id}"> [[${experience.totalDislike}]] </p>
 
                                         </div>
 
