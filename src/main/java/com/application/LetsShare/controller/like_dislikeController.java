@@ -11,11 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.security.Principal;
 import java.util.List;
 
 @Controller
+@ResponseBody
 public class like_dislikeController {
 
 
@@ -32,7 +34,7 @@ public class like_dislikeController {
     // RegisteredUser : like experiences
 
     @RequestMapping("/registeredUser/likePost/{id}")
-    public String likeExperience(@PathVariable("id") int id, Model model, Principal principal){
+    public int likeExperience(@PathVariable("id") int id, Model model, Principal principal){
 
 
 
@@ -78,23 +80,9 @@ public class like_dislikeController {
 
             likeCounterRepository.delete(likedPosts);
 
-//            switch (jobType) {
-//                case "Software":
-//                    return "redirect:/registeredUser/SoftwareExperiencePage";
-//                case "HR":
-//                    return "redirect:/registeredUser/HR_ExperiencePage";
-//                case "Marketing":
-//                    return "redirect:/registeredUser/MarketingExperiencePage";
-//            }
-
         }
 
-        return switch (jobType) {
-            case "Software" -> "redirect:/registeredUser/SoftwareExperiencePage";
-            case "HR" -> "redirect:/registeredUser/HR_ExperiencePage";
-            case "Marketing" -> "redirect:/registeredUser/MarketingExperiencePage";
-            default -> "";
-        };
+        return approvedExperience.getTotalLike();
 
     }
 
@@ -103,7 +91,7 @@ public class like_dislikeController {
     // RegisterUser : dislike experience
 
     @RequestMapping("/registeredUser/dislikePost/{id}")
-    public String dislikeExperience(@PathVariable("id") int id, Model model, Principal principal){
+    public int dislikeExperience(@PathVariable("id") int id, Model model, Principal principal){
 
         // if the current user not disliked this post previously, only then we are giving access to dislike this post.
 
@@ -147,24 +135,26 @@ public class like_dislikeController {
             dislikeCounterRepository.delete(dislikedPosts);
 
 
-//            switch (jobType) {
-//                case "Software":
-//                    return "redirect:/registeredUser/SoftwareExperiencePage";
-//                case "HR":
-//                    return "redirect:/registeredUser/HR_ExperiencePage";
-//                case "Marketing":
-//                    return "redirect:/registeredUser/MarketingExperiencePage";
-//            }
-
         }
 
-        return switch (jobType) {
-            case "Software" -> "redirect:/registeredUser/SoftwareExperiencePage";
-            case "HR" -> "redirect:/registeredUser/HR_ExperiencePage";
-            case "Marketing" -> "redirect:/registeredUser/MarketingExperiencePage";
-            default -> "";
-        };
+        return approvedExperience.getTotalDislike();
 
+    }
+
+    @RequestMapping("/getTotaLikes/{id}")
+    public int checkTotalLikes(@PathVariable("id") int id){
+        ApprovedExperiences approvedExperience = approvedExpRepository.findById(id);
+        int totalLikes = approvedExperience.getTotalLike();
+
+        return totalLikes;
+    }
+
+    @RequestMapping("/getTotalDislikes/{id}")
+    public int checkTotalDislikes(@PathVariable("id") int id){
+        ApprovedExperiences approvedExperience = approvedExpRepository.findById(id);
+        int totalDislikes = approvedExperience.getTotalDislike();
+
+        return totalDislikes;
     }
 
 

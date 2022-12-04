@@ -1,12 +1,4 @@
 
-function work(expId){
-    // console.log("id is " + expId);
-    // alert(expId);
-
-    // alert("image click is working");
-}
-
-
 function like(id){
 
     let httpRequest = new XMLHttpRequest();
@@ -15,9 +7,9 @@ function like(id){
 
     httpRequest.onload = function (){
         document.getElementById("like"+id).innerText = httpRequest.responseText;
+        console.log(httpRequest.responseText);
+        checkDislike(id);
     }
-    console.log("js worked");
-
 }
 
 function dislike(id){
@@ -28,7 +20,37 @@ function dislike(id){
 
     httpRequest.onload = function (){
         document.getElementById("dislike"+id).innerText = httpRequest.responseText;
+        checkLike(id);
     }
-    console.log("js worked");
+}
 
+
+
+function checkLike(id){
+
+    let httpRequest = new XMLHttpRequest();
+    httpRequest.open("GET", 'http://localhost:8080/getTotaLikes/'+id);
+    httpRequest.send();
+
+    httpRequest.onload = function (){
+
+        document.getElementById("like"+id).innerText = httpRequest.responseText;
+        console.log(httpRequest.responseText);
+
+    }
+}
+
+
+function checkDislike(id){
+
+    let httpRequest = new XMLHttpRequest();
+    httpRequest.open("GET", 'http://localhost:8080/getTotalDislikes/'+id);
+    httpRequest.send();
+
+    httpRequest.onload = function (){
+
+        document.getElementById("dislike"+id).innerText = httpRequest.responseText;
+        console.log(httpRequest.responseText);
+
+    }
 }
