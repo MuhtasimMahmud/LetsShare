@@ -71,19 +71,4 @@ public class allUsersController {
         return "allUsers/fullExperience";
     }
 
-    @ResponseBody
-    @GetMapping("/experiencesCount")
-    public Map experiencesCount(Model model){
-
-        Map<String, Integer> experienceCounter = new HashMap<>();
-        experienceCounter.put("Software", approvedExpRepository.findAllByjobType("Software"));
-        experienceCounter.put("HR", approvedExpRepository.findAllByjobType("HR"));
-        experienceCounter.put("Marketing", approvedExpRepository.findAllByjobType("Marketing"));
-
-        return experienceCounter;
-    }
-
-
-
-
 }

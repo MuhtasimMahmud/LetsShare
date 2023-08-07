@@ -56,7 +56,14 @@ function checkDislike(id){
 }
 
 function experienceCounter(){
+    let httpRequest = new XMLHttpRequest();
+    httpRequest.open("GET", 'allUsers/experiencesCount');
+    httpRequest.send();
 
+    httpRequest.onload = function (){
 
+        document.getElementById("SoftwareExperienceCount").innerText = httpRequest.responseText;
+    }
 
+    // SoftwareExperienceCount
 }
