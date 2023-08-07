@@ -63,18 +63,18 @@ This is a platform (web application) in which people can share specific software
 
 Screenshots :
 
-1. Without Login any user can read the experiences but for doing like or save experiences the user has to do login. <br>
+1. Without Login any user can read the experiences but for doing like or save experiences the user has to do login.
 ![Inkedwithout login_](https://github.com/MuhtasimMahmud/LetsShare/assets/58343930/3e595a72-0a63-4350-94e8-9b514a9c6b93)
-<br>
-2. Login <br>
+
+2. Login
 ![3](https://user-images.githubusercontent.com/58343930/205515155-9beda45f-2ddb-444c-85f1-e35a1d750d3c.png)
-<br>
-3. After login the options will arrive in the right side of the navbar. <br>
+
+3. After login the options will arrive in the right side of the navbar.
 ![InkedAfter login](https://github.com/MuhtasimMahmud/LetsShare/assets/58343930/c52f9046-e1b4-4b02-a19c-5fe9aa63bf52)
-<br>
-4. Read Full experience. <br>
+
+4. Read Full experience. 
 ![5](https://user-images.githubusercontent.com/58343930/205515162-9a7a9da8-7007-48ae-b70a-6af992f38db9.png)
-<br>
+
 ![6](https://user-images.githubusercontent.com/58343930/205515163-03960751-fb44-44d4-994b-e67139164fcd.png)
 ![7](https://user-images.githubusercontent.com/58343930/205515174-5c8e7d7a-e5d6-427b-b6a4-1e147345c586.png)
 ![8](https://user-images.githubusercontent.com/58343930/205515175-cbb0103b-cdd2-49dd-9802-fbb5a07c771e.png)
