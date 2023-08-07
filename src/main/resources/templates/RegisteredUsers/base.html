@@ -25,9 +25,13 @@
             }
         </style>
 
+
+        <!-- custom javaScript for http request (experienceCount) -->
+        <script type="text/javascript" src="/js/design.js"> </script>
+
     </head>
 
-    <body>
+    <body th:onload="experienceCounter()">
 
         <!-- 3 ta page hobe total - software, HR, Marketing - ei 3 ta page er jonno navbar ta common ekta page e hobe -->
 
@@ -36,15 +40,7 @@
         <ul class="nav nav-tabs justify-content-center">
 
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/registeredUser/SoftwareExperiencePage}">Software</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/registeredUser/HR_ExperiencePage}">HR</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/registeredUser/MarketingExperiencePage}">Marketing</a>
+                <a class="nav-link" style="margin-left: 70px;"> 𝐿𝑒𝓉'𝓈 𝒮𝒽𝒶𝓇𝑒 </a>
             </li>
 
             <li class="nav-item ml-auto">
