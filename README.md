@@ -19,6 +19,7 @@ This is a platform (web application) in which people can share specific software
       - Software
       - HR
       - Marketing
+      - and many more
 
 
 3. Read Experiences : 
@@ -56,17 +57,24 @@ This is a platform (web application) in which people can share specific software
       - can share experiences.
       - can view own experiences and edit own info from own profile.
       - can edit the experiences which are shared by ownself.
-      - only admin can see who liked or who disliked on any post. normal user only can see the total like or dislike count but can't see the persons list who liked or         disliked.
+      - only admin can see who liked or who disliked on any post. normal user only can see the total like or dislike count but can't see the persons list who liked or disliked.
       
      
 
 Screenshots :
 
-1. Without Login any user can read the experiences but for doing like or save experiences the user has to do login.
+1. Without Login any user can read the experiences but for doing like or save experiences the user has to do login. <br>
 ![Inkedwithout login_](https://github.com/MuhtasimMahmud/LetsShare/assets/58343930/3e595a72-0a63-4350-94e8-9b514a9c6b93)
+<br>
+2. Login <br>
 ![3](https://user-images.githubusercontent.com/58343930/205515155-9beda45f-2ddb-444c-85f1-e35a1d750d3c.png)
-![4](https://user-images.githubusercontent.com/58343930/205515160-945f61b4-4737-4686-893e-018f3f06ff6e.png)
+<br>
+3. After login the options will arrive in the right side of the navbar. <br>
+![InkedAfter login](https://github.com/MuhtasimMahmud/LetsShare/assets/58343930/c52f9046-e1b4-4b02-a19c-5fe9aa63bf52)
+<br>
+4. Read Full experience. <br>
 ![5](https://user-images.githubusercontent.com/58343930/205515162-9a7a9da8-7007-48ae-b70a-6af992f38db9.png)
+<br>
 ![6](https://user-images.githubusercontent.com/58343930/205515163-03960751-fb44-44d4-994b-e67139164fcd.png)
 ![7](https://user-images.githubusercontent.com/58343930/205515174-5c8e7d7a-e5d6-427b-b6a4-1e147345c586.png)
 ![8](https://user-images.githubusercontent.com/58343930/205515175-cbb0103b-cdd2-49dd-9802-fbb5a07c771e.png)
