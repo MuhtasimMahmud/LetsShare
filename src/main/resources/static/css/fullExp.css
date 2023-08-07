@@ -8,3 +8,18 @@
     width: 600px;
     margin-bottom: 35px;
 }
+
+/*.container .center{*/
+/*    text-align: center;*/
+/*    height: 20px;*/
+/*}*/
+
+/*this css was written just to check the width of the like buttons area to fix the center*/
+/*.likeDiv{*/
+/*    background-color: #04AA6D;*/
+/*}*/
+
+.fullExpFooter{
+    width: 565px;
+    margin-bottom: 20px;
+}
