@@ -25,6 +25,10 @@
 
 /* writing-icon */
 
+.expFooter{
+    width: 560px;
+}
+
 .write-icon{
     margin-left: auto;
     margin-right: auto;
