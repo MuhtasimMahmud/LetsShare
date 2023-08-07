@@ -18,13 +18,13 @@
 
            <div class="container">
 
-               <h4> Showing <span th:text="${expCount}"></span> results for software</h4>
+               <h4> Showing <span th:text="${expCount}"></span> results</h4>
 
                <div class="card-deck experience-cards" th:each="experience : ${experiences}">
 
                    <div class="experience row">
 
-                       <div class="crd col-md-9">
+                       <div class="crd">
                            <a th:href="@{/registeredUser/fullExperience/{id}(id = ${experience.id})}">
                                <div class="card">
                                    <img class="card-img-top" th:src="${experience.image}" alt="Card image cap">
