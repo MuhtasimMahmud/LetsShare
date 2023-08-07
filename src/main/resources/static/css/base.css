@@ -75,6 +75,7 @@
 
 .card{
     border-radius: 15px;
+    width: 570px;
 }
 .card img{
     height: 250px;
