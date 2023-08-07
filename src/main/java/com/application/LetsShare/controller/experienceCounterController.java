@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -20,15 +21,10 @@ public class experienceCounterController {
 
 
     @ResponseBody
-    @GetMapping("/experiencesCount")
-    public Map experiencesCount(Model model){
-
-        Map<String, Integer> experienceCounter = new HashMap<>();
-        experienceCounter.put("Software", approvedExpRepository.findAllByjobType("Software"));
-        experienceCounter.put("HR", approvedExpRepository.findAllByjobType("HR"));
-        experienceCounter.put("Marketing", approvedExpRepository.findAllByjobType("Marketing"));
-
-        return experienceCounter;
+    @GetMapping("SoftwareExperiencesCount")
+    public int experiencesCount(Model model){
+        List softwareExperienceCount = approvedExpRepository.findAll("Software");
+        return softwareExperienceCount.size();
     }
 
 }

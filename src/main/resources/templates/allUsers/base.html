@@ -23,9 +23,13 @@
             }
         </style>
 
+
+        <!-- custom javaScript for http request (like/dislike) -->
+        <script type="text/javascript" src="/js/design.js"> </script>
+
     </head>
 
-    <body>
+    <body th:onload="experienceCounter()">
 
         <!-- 3 ta page hobe total - software, HR, Marketing - ei 3 ta page er jonno navbar ta common ekta page e hobe -->
 
@@ -61,7 +65,7 @@
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <a th:href="@{/allUsers/SoftwareExperiencePage}">Software Engineer</a>
-                            <span class="badge badge-primary badge-pill" id="SoftwareExperienceCount">14</span>
+                            <span class="badge badge-primary badge-pill"> <span id="SoftwareExperienceCount"> 00 </span></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <a th:href="@{/allUsers/HR_ExperiencePage}">Human Resource</a>

@@ -44,8 +44,8 @@ function checkLike(id){
 function checkDislike(id){
 
     let httpRequest = new XMLHttpRequest();
-    httpRequest.open("GET", 'http://localhost:8080/getTotalDislikes/'+id);
     httpRequest.send();
+    httpRequest.open("GET", 'http://localhost:8080/getTotalDislikes/'+id);
 
     httpRequest.onload = function (){
 
@@ -57,12 +57,12 @@ function checkDislike(id){
 
 function experienceCounter(){
     let httpRequest = new XMLHttpRequest();
-    httpRequest.open("GET", 'allUsers/experiencesCount');
+    httpRequest.open("GET", 'http://localhost:8080/SoftwareExperiencesCount');
     httpRequest.send();
 
     httpRequest.onload = function (){
-
         document.getElementById("SoftwareExperienceCount").innerText = httpRequest.responseText;
+        console.log(httpRequest.responseText);
     }
 
     // SoftwareExperienceCount
