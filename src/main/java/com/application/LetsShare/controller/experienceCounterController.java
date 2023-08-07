@@ -22,9 +22,27 @@ public class experienceCounterController {
 
     @ResponseBody
     @GetMapping("SoftwareExperiencesCount")
-    public int experiencesCount(Model model){
-        List softwareExperienceCount = approvedExpRepository.findAll("Software");
-        return softwareExperienceCount.size();
+    public int softwareExperiencesCount(Model model){
+        List ExperienceCount = approvedExpRepository.findAll("Software");
+        return ExperienceCount.size();
     }
+
+
+    @ResponseBody
+    @GetMapping("HRExperiencesCount")
+    public int HRExperiencesCount(Model model){
+        List ExperienceCount = approvedExpRepository.findAll("HR");
+        return ExperienceCount.size();
+    }
+
+    @ResponseBody
+    @GetMapping("marketingExperiencesCount")
+    public int marketingExperiencesCount(Model model){
+        List ExperienceCount = approvedExpRepository.findAll("Marketing");
+        return ExperienceCount.size();
+    }
+
+
+
 
 }

@@ -56,6 +56,13 @@ function checkDislike(id){
 }
 
 function experienceCounter(){
+    softwareExpCounter();
+    HRExpCounter();
+    MarketingExpCounter();
+}
+
+
+function softwareExpCounter(){
     let httpRequest = new XMLHttpRequest();
     httpRequest.open("GET", 'http://localhost:8080/SoftwareExperiencesCount');
     httpRequest.send();
@@ -64,6 +71,30 @@ function experienceCounter(){
         document.getElementById("SoftwareExperienceCount").innerText = httpRequest.responseText;
         console.log(httpRequest.responseText);
     }
+}
 
-    // SoftwareExperienceCount
+
+
+function HRExpCounter(){
+    let httpRequest = new XMLHttpRequest();
+    httpRequest.open("GET", 'http://localhost:8080/HRExperiencesCount');
+    httpRequest.send();
+
+    httpRequest.onload = function (){
+        document.getElementById("hrExperienceCount").innerText = httpRequest.responseText;
+        console.log(httpRequest.responseText);
+    }
+}
+
+
+
+function MarketingExpCounter(){
+    let httpRequest = new XMLHttpRequest();
+    httpRequest.open("GET", 'http://localhost:8080/marketingExperiencesCount');
+    httpRequest.send();
+
+    httpRequest.onload = function (){
+        document.getElementById("MarketingExperienceCount").innerText = httpRequest.responseText;
+        console.log(httpRequest.responseText);
+    }
 }
