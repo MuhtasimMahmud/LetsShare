@@ -14,53 +14,47 @@
 
        <section>
 
-
            <div class="container">
+               <h4> Showing <span th:text="${expCount}"></span> results</h4>
 
-                           <h4> Showing <span th:text="${expCount}"></span> results</h4>
-
-                           <div class="card-deck experience-cards" th:each="experience : ${experiences}">
-                               <div class="experience row">
-                                   <div class="crd">
-                                       <a th:href="@{/allUsers/fullExperience/{id}(id = ${experience.id})}">
-                                           <div class="card">
-                                               <img class="card-img-top" th:src="${experience.image}" alt="Card image cap">
-                                               <div class="card-body">
-                                                   <h5 class="card-title">[[${experience.candidateNickname}]]'s interview experience in [[${experience.officeName}]] </h5>
-                                                   <p class="card-text">[[${experience.experienceSummary}]].</p>
-                                               </div>
-
-                                               <div class="card-footer">
-                                                   <!--                                       <small class="text-muted">Post ID: [[${experience.id}]] &nbsp; <span>   </span> </small>-->
-                                                   <small class="text-muted">Posted on : [[${experience.postingDate}]]</small>
-                                                   <!--                                       <small class="text-muted"> &nbsp; Posted by: [[${experience.postedBy}]]</small>-->
-
-                                                   <div class="likeDiv">
-                                                       <a class="sideBysideItem"  th:href="@{/signin}"> <img id="likebtn" src="/images/like.png" alt=""> </a>
-                                                       <p class="sideBysideItem count" id="likeCount"> [[${experience.totalLike}]] </p>
-
-                                                       <a class="sideBysideItem" th:href="@{/signin}"> <img id="dislikebtn" src="/images/dislike.png" alt=""> </a>
-                                                       <p class="sideBysideItem count" id="dislikeCount"> [[${experience.totalDislike}]] </p>
-                                                   </div>
-
-                                               </div>
-                                           </div>
-                                       </a>
+               <div class="card-deck experience-cards" th:each="experience : ${experiences}">
+                   <div class="experience row">
+                       <div class="crd">
+                           <a th:href="@{/allUsers/fullExperience/{id}(id = ${experience.id})}">
+                               <div class="card">
+                                   <img class="card-img-top" th:src="${experience.image}" alt="Card image cap">
+                                   <div class="card-body">
+                                       <h5 class="card-title">[[${experience.candidateNickname}]]'s interview experience in [[${experience.officeName}]] </h5>
+                                       <p class="card-text">[[${experience.experienceSummary}]].</p>
+                                   </div>
+                                   <div class="card-footer">
+                                       <!--                                       <small class="text-muted">Post ID: [[${experience.id}]] &nbsp; <span>   </span> </small>-->
+                                       <small class="text-muted">Posted on : [[${experience.postingDate}]]</small>
+                                       <!--                                       <small class="text-muted"> &nbsp; Posted by: [[${experience.postedBy}]]</small>-->
+                                       <div class="likeDiv">
+                                           <a class="sideBysideItem"  th:href="@{/signin}"> <img id="likebtn" src="/images/like.png" alt=""> </a>
+                                           <p class="sideBysideItem count" id="likeCount"> [[${experience.totalLike}]] </p>
+                                           <a class="sideBysideItem" th:href="@{/signin}"> <img id="dislikebtn" src="/images/dislike.png" alt=""> </a>
+                                           <p class="sideBysideItem count" id="dislikeCount"> [[${experience.totalDislike}]] </p>
+                                       </div>
                                    </div>
                                </div>
-                           </div>
-
-                           <div class="write-icon">
-                               <div class="container">
-                                   <a th:href="@{/registeredUser/writeNewExperience}">
-                                       <img src="/images/newPost.png" alt="">
-                                   </a>
-                               </div>
-                           </div>
+                           </a>
                        </div>
                    </div>
                </div>
+
+
+               <div class="write-icon">
+                   <div class="container">
+                       <a th:href="@{/registeredUser/writeNewExperience}">
+                           <img src="/images/newPost.png" alt="">
+                       </a>
+                   </div>
+               </div>
+
            </div>
+
        </section>
 
     </body>
