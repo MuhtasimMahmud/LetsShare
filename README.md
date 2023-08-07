@@ -62,8 +62,8 @@ This is a platform (web application) in which people can share specific software
 
 Screenshots :
 
-
-![1](https://user-images.githubusercontent.com/58343930/205515151-775fa7eb-34b6-4ac4-93a6-4c4d4854bce1.png)
+1. Without Login any user can read the experiences but for doing like or save experiences the user has to do login.
+![Inkedwithout login_](https://github.com/MuhtasimMahmud/LetsShare/assets/58343930/3e595a72-0a63-4350-94e8-9b514a9c6b93)
 ![3](https://user-images.githubusercontent.com/58343930/205515155-9beda45f-2ddb-444c-85f1-e35a1d750d3c.png)
 ![4](https://user-images.githubusercontent.com/58343930/205515160-945f61b4-4737-4686-893e-018f3f06ff6e.png)
 ![5](https://user-images.githubusercontent.com/58343930/205515162-9a7a9da8-7007-48ae-b70a-6af992f38db9.png)
