@@ -14,7 +14,7 @@ public interface ApprovedExpRepository extends JpaRepository<ApprovedExperiences
 
     public ApprovedExperiences findById(int id);
 
-
+    public int findAllByjobType(String type);
 
     @Query ("select A from ApprovedExperiences A where A.postedBy = :email")
     public List<ApprovedExperiences> findAllByEmail(String email);

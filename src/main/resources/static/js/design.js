@@ -54,3 +54,9 @@ function checkDislike(id){
 
     }
 }
+
+function experienceCounter(){
+
+
+
+}
